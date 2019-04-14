@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • spread</title>
+<title>commuter — commuter • spread</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,7 +30,10 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="commuter — commuter" />
+
+<meta property="og:description" content="commuter" />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -47,7 +50,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -112,72 +115,82 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>commuter</h1>
+    
+    <div class="hidden name"><code>commuter.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    
+    <p>commuter</p>
+    
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
-
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="commuter.html">commuter()</a></code> </p>
-        </td>
-        <td><p>commuter</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="commuter_cpp.html">commuter_cpp()</a></code> </p>
-        </td>
-        <td><p>commuter</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="norway_di_edge_list_2017.html">norway_di_edge_list_2017</a></code> </p>
-        </td>
-        <td><p>Names of areas in Norway that currently exist.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="norway_pop_wo_com_2017.html">norway_pop_wo_com_2017</a></code> </p>
-        </td>
-        <td><p>Names of areas in Norway that previously existed.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="start_points_blank.html">start_points_blank</a></code> </p>
-        </td>
-        <td><p>Names of areas in Norway that currently exist.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="start_points_oslo.html">start_points_oslo</a></code> </p>
-        </td>
-        <td><p>Names of areas in Norway that previously existed.</p></td>
-      </tr>
-    </tbody>
+    <pre class="usage"><span class='fu'>commuter</span>(<span class='kw'>pop_wo_com</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='https://www.rdocumentation.org/packages/spread/topics/norway_pop_wo_com_2017'>norway_pop_wo_com_2017</a></span>,
+  <span class='kw'>di_edge_list</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='https://www.rdocumentation.org/packages/spread/topics/norway_di_edge_list_2017'>norway_di_edge_list_2017</a></span>,
+  <span class='kw'>start_points</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='https://www.rdocumentation.org/packages/spread/topics/start_points_oslo'>start_points_oslo</a></span>, <span class='kw'>r0</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>beta</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>1</span>/<span class='fl'>1.9</span>, <span class='kw'>gamma</span> <span class='kw'>=</span> <span class='fl'>1</span>/<span class='fl'>3</span>, <span class='kw'>asymptomatic_prob</span> <span class='kw'>=</span> <span class='fl'>0</span>,
+  <span class='kw'>asymptomatic_relative_infectiousness</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>N</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>M</span> <span class='kw'>=</span> <span class='fl'>7</span> * <span class='fl'>8</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>pop_wo_com</th>
+      <td><p>Data frame</p></td>
+    </tr>
+    <tr>
+      <th>di_edge_list</th>
+      <td><p>Data frame</p></td>
+    </tr>
+    <tr>
+      <th>start_points</th>
+      <td><p>Data frame</p></td>
+    </tr>
+    <tr>
+      <th>r0</th>
+      <td><p>Float, basic reproduction number</p></td>
+    </tr>
+    <tr>
+      <th>beta</th>
+      <td><p>Float, infection parameter, 0.6</p></td>
+    </tr>
+    <tr>
+      <th>a</th>
+      <td><p>Float, 1/latent period, 1/1.9</p></td>
+    </tr>
+    <tr>
+      <th>gamma</th>
+      <td><p>Float, 1/infectious period, 1/3</p></td>
+    </tr>
+    <tr>
+      <th>asymptomatic_prob</th>
+      <td><p>Float, Proportion/probability of asymptomatic given infectious</p></td>
+    </tr>
+    <tr>
+      <th>asymptomatic_relative_infectiousness</th>
+      <td><p>Float, Relative infectiousness of asymptomatic infectious</p></td>
+    </tr>
+    <tr>
+      <th>N</th>
+      <td><p>Int = 1 int, Number of repetitions</p></td>
+    </tr>
+    <tr>
+      <th>M</th>
+      <td><p>Int, Number of days</p></td>
+    </tr>
     </table>
-  </div>
+    
 
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
-    </ul>
+      <li><a href="#arguments">Arguments</a></li>
+                </ul>
+
   </div>
 </div>
 

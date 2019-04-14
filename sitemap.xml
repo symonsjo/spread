@@ -4,12 +4,24 @@
     <loc>https://folkehelseinstituttet.github.io/fhi//index.html</loc>
   </url>
   <url>
-    <loc>https://folkehelseinstituttet.github.io/fhi//reference/CreateDataFiles.html</loc>
+    <loc>https://folkehelseinstituttet.github.io/fhi//reference/commuter.html</loc>
   </url>
   <url>
-    <loc>https://folkehelseinstituttet.github.io/fhi//reference/RunSim.html</loc>
+    <loc>https://folkehelseinstituttet.github.io/fhi//reference/commuter_cpp.html</loc>
   </url>
   <url>
-    <loc>https://folkehelseinstituttet.github.io/fhi//reference/SetupCPPAndStructure.html</loc>
+    <loc>https://folkehelseinstituttet.github.io/fhi//reference/norway_di_edge_list_2017.html</loc>
+  </url>
+  <url>
+    <loc>https://folkehelseinstituttet.github.io/fhi//reference/norway_pop_wo_com_2017.html</loc>
+  </url>
+  <url>
+    <loc>https://folkehelseinstituttet.github.io/fhi//reference/start_points_blank.html</loc>
+  </url>
+  <url>
+    <loc>https://folkehelseinstituttet.github.io/fhi//reference/start_points_oslo.html</loc>
+  </url>
+  <url>
+    <loc>https://folkehelseinstituttet.github.io/fhi//articles/commuter_model.html</loc>
   </url>
 </urlset>
