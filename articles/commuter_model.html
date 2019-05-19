@@ -30,7 +30,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">spread</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2019.4.18</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2019.5.19</span>
       </span>
     </div>
 
@@ -86,7 +86,7 @@
       <h1>Commuter Model</h1>
                         <h4 class="author">Vignette Author</h4>
             
-            <h4 class="date">2019-04-18</h4>
+            <h4 class="date">2019-05-19</h4>
       
       
       <div class="hidden name"><code>commuter_model.Rmd</code></div>
@@ -108,38 +108,36 @@
 <a href="#figures" class="anchor"></a>Figures</h2>
 <p>The figure sizes have been customised so that you can easily put two images side-by-side.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">d &lt;-<span class="st"> </span>spread<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/spread/topics/commuter">commuter</a></span>(</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">  <span class="dt">pop_wo_com=</span>spread<span class="op">::</span>norway_pop_wo_com_<span class="dv">2017</span>,</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">  <span class="dt">di_edge_list=</span>spread<span class="op">::</span>norway_di_edge_list_<span class="dv">2017</span>,</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">  <span class="dt">start_points=</span>spread<span class="op">::</span>start_points_oslo,</a>
-<a class="sourceLine" id="cb2-5" data-line-number="5">  <span class="dt">r0=</span><span class="fl">1.8</span>,</a>
-<a class="sourceLine" id="cb2-6" data-line-number="6">  <span class="dt">beta=</span><span class="ot">NULL</span>,</a>
-<a class="sourceLine" id="cb2-7" data-line-number="7">  <span class="dt">a=</span><span class="dv">1</span><span class="op">/</span><span class="fl">1.9</span>,</a>
-<a class="sourceLine" id="cb2-8" data-line-number="8">  <span class="dt">gamma=</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,</a>
-<a class="sourceLine" id="cb2-9" data-line-number="9">  <span class="dt">asymptomatic_prob=</span><span class="dv">0</span>,</a>
-<a class="sourceLine" id="cb2-10" data-line-number="10">  <span class="dt">asymptomatic_relative_infectiousness=</span><span class="dv">0</span>,</a>
-<a class="sourceLine" id="cb2-11" data-line-number="11">  <span class="dt">N=</span><span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb2-12" data-line-number="12">  <span class="dt">M=</span><span class="dv">7</span><span class="op">*</span><span class="dv">8</span></a>
-<a class="sourceLine" id="cb2-13" data-line-number="13">)</a>
-<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt; Starting to add edges, printing every 1000 edge</span></a>
-<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">#&gt; Found 422 edges</span></a>
-<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co">#&gt; Running 1 simulations of 56 days</span></a>
-<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb2-18" data-line-number="18"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb2-19" data-line-number="19"><span class="co">#&gt; Finished all simulations</span></a>
-<a class="sourceLine" id="cb2-20" data-line-number="20"></a>
-<a class="sourceLine" id="cb2-21" data-line-number="21">d</a>
-<a class="sourceLine" id="cb2-22" data-line-number="22"><span class="co">#&gt;        location_code day     S E I IA R INCIDENCE</span></a>
-<a class="sourceLine" id="cb2-23" data-line-number="23"><span class="co">#&gt;     1:   municip0101   1 30790 0 0  0 0         0</span></a>
-<a class="sourceLine" id="cb2-24" data-line-number="24"><span class="co">#&gt;     2:   municip0101   1 30790 0 0  0 0         0</span></a>
-<a class="sourceLine" id="cb2-25" data-line-number="25"><span class="co">#&gt;     3:   municip0101   2 30790 0 0  0 0         0</span></a>
-<a class="sourceLine" id="cb2-26" data-line-number="26"><span class="co">#&gt;     4:   municip0101   2 30790 0 0  0 0         0</span></a>
-<a class="sourceLine" id="cb2-27" data-line-number="27"><span class="co">#&gt;     5:   municip0101   3 30790 0 0  0 0         0</span></a>
-<a class="sourceLine" id="cb2-28" data-line-number="28"><span class="co">#&gt;    ---                                           </span></a>
-<a class="sourceLine" id="cb2-29" data-line-number="29"><span class="co">#&gt; 47260:   municip5061  54  1824 0 0  0 0         0</span></a>
-<a class="sourceLine" id="cb2-30" data-line-number="30"><span class="co">#&gt; 47261:   municip5061  55  1824 0 0  0 0         0</span></a>
-<a class="sourceLine" id="cb2-31" data-line-number="31"><span class="co">#&gt; 47262:   municip5061  55  1824 0 0  0 0         0</span></a>
-<a class="sourceLine" id="cb2-32" data-line-number="32"><span class="co">#&gt; 47263:   municip5061  56  1824 0 0  0 0         0</span></a>
-<a class="sourceLine" id="cb2-33" data-line-number="33"><span class="co">#&gt; 47264:   municip5061  56  1824 0 0  0 0         0</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-2" data-line-number="2">  <span class="dt">seiiar=</span>spread<span class="op">::</span>norway_seiiar_oslo_<span class="dv">2017</span>,</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">  <span class="dt">commuters=</span>spread<span class="op">::</span>norway_commuters_<span class="dv">2017</span>,</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">  <span class="dt">r0=</span><span class="fl">1.8</span>,</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">  <span class="dt">latent_period =</span> <span class="fl">1.9</span>,</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">  <span class="dt">infectious_period =</span> <span class="fl">3.0</span>,</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">  <span class="dt">asymptomatic_prob=</span><span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">  <span class="dt">asymptomatic_relative_infectiousness=</span><span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb2-9" data-line-number="9">  <span class="dt">N=</span><span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb2-10" data-line-number="10">  <span class="dt">M=</span><span class="dv">7</span><span class="op">*</span><span class="dv">8</span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11">)</a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt; Starting to add edges, printing every 1000 edge</span></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt; 1000 2000 3000 4000 5000 6000 7000 8000 9000 10000 11000 12000 13000 14000 15000 16000 17000 18000 19000 20000 21000 22000 23000 24000 25000 26000 27000 28000 Found 28923 edges</span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt; Running 1 simulations of 56 days</span></a>
+<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="co">#&gt; Finished all simulations</span></a>
+<a class="sourceLine" id="cb2-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb2-19" data-line-number="19">d</a>
+<a class="sourceLine" id="cb2-20" data-line-number="20"><span class="co">#&gt;        location_code day is_6pm     S E I Ia R INCIDENCE</span></a>
+<a class="sourceLine" id="cb2-21" data-line-number="21"><span class="co">#&gt;     1:   municip0101   1   TRUE 30790 0 0  0 0         0</span></a>
+<a class="sourceLine" id="cb2-22" data-line-number="22"><span class="co">#&gt;     2:   municip0101   2   TRUE 30790 0 0  0 0         0</span></a>
+<a class="sourceLine" id="cb2-23" data-line-number="23"><span class="co">#&gt;     3:   municip0101   3   TRUE 30790 0 0  0 0         0</span></a>
+<a class="sourceLine" id="cb2-24" data-line-number="24"><span class="co">#&gt;     4:   municip0101   4   TRUE 30790 0 0  0 0         0</span></a>
+<a class="sourceLine" id="cb2-25" data-line-number="25"><span class="co">#&gt;     5:   municip0101   5   TRUE 30790 0 0  0 0         0</span></a>
+<a class="sourceLine" id="cb2-26" data-line-number="26"><span class="co">#&gt;    ---                                                  </span></a>
+<a class="sourceLine" id="cb2-27" data-line-number="27"><span class="co">#&gt; 23628:   municip5061  52   TRUE  2026 0 0  0 0         0</span></a>
+<a class="sourceLine" id="cb2-28" data-line-number="28"><span class="co">#&gt; 23629:   municip5061  53   TRUE  2026 0 0  0 0         0</span></a>
+<a class="sourceLine" id="cb2-29" data-line-number="29"><span class="co">#&gt; 23630:   municip5061  54   TRUE  2026 0 0  0 0         0</span></a>
+<a class="sourceLine" id="cb2-30" data-line-number="30"><span class="co">#&gt; 23631:   municip5061  55   TRUE  2026 0 0  0 0         0</span></a>
+<a class="sourceLine" id="cb2-31" data-line-number="31"><span class="co">#&gt; 23632:   municip5061  56   TRUE  2026 0 0  0 0         0</span></a></code></pre></div>
 <p>You can enable figure captions by <code>fig_caption: yes</code> in YAML:</p>
 <pre><code>output:
   rmarkdown::html_vignette:

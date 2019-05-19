@@ -32,7 +32,14 @@
 
 <meta property="og:title" content="commuter — commuter" />
 
-<meta property="og:description" content="commuter" />
+<meta property="og:description" content="This model is a stochastic SEIIaR (susceptible, exposed, infectious, infectious asymptomatic, recovered)
+metapopulation model. Each location has a local infection system, while the locations are connected
+by people who commute each day. The model differentiates between day and night. During the day you
+can infect/be infected in the location where you work, while during the night you can infect/be infected
+in the location where you live. It is the same commuters who travel back and forth each day. At the
+start of a day, all commuters are sent to their work location, where they mix for 12 hours. The
+commuters are then sent to their respective home locations, where they mix for 12 hours. The model
+is based upon a published model." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -63,7 +70,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">spread</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2019.4.18</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2019.5.19</span>
       </span>
     </div>
 
@@ -124,29 +131,31 @@
 
     <div class="ref-description">
     
-    <p>commuter</p>
+    <p>This model is a stochastic SEIIaR (susceptible, exposed, infectious, infectious asymptomatic, recovered)
+metapopulation model. Each location has a local infection system, while the locations are connected
+by people who commute each day. The model differentiates between day and night. During the day you
+can infect/be infected in the location where you work, while during the night you can infect/be infected
+in the location where you live. It is the same commuters who travel back and forth each day. At the
+start of a day, all commuters are sent to their work location, where they mix for 12 hours. The
+commuters are then sent to their respective home locations, where they mix for 12 hours. The model
+is based upon a published model.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>commuter</span>(<span class='kw'>pop_wo_com</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='https://www.rdocumentation.org/packages/spread/topics/norway_pop_wo_com_2017'>norway_pop_wo_com_2017</a></span>,
-  <span class='kw'>di_edge_list</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='https://www.rdocumentation.org/packages/spread/topics/norway_di_edge_list_2017'>norway_di_edge_list_2017</a></span>,
-  <span class='kw'>start_points</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='https://www.rdocumentation.org/packages/spread/topics/start_points_oslo'>start_points_oslo</a></span>, <span class='kw'>r0</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>beta</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>1</span>/<span class='fl'>1.9</span>, <span class='kw'>gamma</span> <span class='kw'>=</span> <span class='fl'>1</span>/<span class='fl'>3</span>, <span class='kw'>asymptomatic_prob</span> <span class='kw'>=</span> <span class='fl'>0</span>,
+    <pre class="usage"><span class='fu'>commuter</span>(<span class='kw'>seiiar</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='https://www.rdocumentation.org/packages/spread/topics/norway_seiiar_oslo_2017'>norway_seiiar_oslo_2017</a></span>,
+  <span class='kw'>commuters</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='https://www.rdocumentation.org/packages/spread/topics/norway_commuters_2017'>norway_commuters_2017</a></span>, <span class='kw'>r0</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>beta</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>latent_period</span> <span class='kw'>=</span> <span class='fl'>1.9</span>, <span class='kw'>infectious_period</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>asymptomatic_prob</span> <span class='kw'>=</span> <span class='fl'>0</span>,
   <span class='kw'>asymptomatic_relative_infectiousness</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>N</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>M</span> <span class='kw'>=</span> <span class='fl'>7</span> * <span class='fl'>8</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>pop_wo_com</th>
+      <th>seiiar</th>
       <td><p>Data frame</p></td>
     </tr>
     <tr>
-      <th>di_edge_list</th>
-      <td><p>Data frame</p></td>
-    </tr>
-    <tr>
-      <th>start_points</th>
+      <th>commuters</th>
       <td><p>Data frame</p></td>
     </tr>
     <tr>
@@ -158,12 +167,12 @@
       <td><p>Float, infection parameter, 0.6</p></td>
     </tr>
     <tr>
-      <th>a</th>
-      <td><p>Float, 1/latent period, 1/1.9</p></td>
+      <th>latent_period</th>
+      <td><p>Float, 1.9</p></td>
     </tr>
     <tr>
-      <th>gamma</th>
-      <td><p>Float, 1/infectious period, 1/3</p></td>
+      <th>infectious_period</th>
+      <td><p>Float, 3</p></td>
     </tr>
     <tr>
       <th>asymptomatic_prob</th>
