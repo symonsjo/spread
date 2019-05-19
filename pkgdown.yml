@@ -4,6 +4,6 @@ pkgdown_sha: ~
 articles:
   commuter_model: commuter_model.html
 urls:
-  reference: https://folkehelseinstituttet.github.io/fhi//reference
-  article: https://folkehelseinstituttet.github.io/fhi//articles
+  reference: https://folkehelseinstituttet.github.io/spread//reference
+  article: https://folkehelseinstituttet.github.io/spread//articles
 

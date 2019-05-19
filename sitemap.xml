@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://folkehelseinstituttet.github.io/fhi//index.html</loc>
+    <loc>https://folkehelseinstituttet.github.io/spread//index.html</loc>
   </url>
   <url>
-    <loc>https://folkehelseinstituttet.github.io/fhi//reference/commuter.html</loc>
+    <loc>https://folkehelseinstituttet.github.io/spread//reference/commuter.html</loc>
   </url>
   <url>
-    <loc>https://folkehelseinstituttet.github.io/fhi//reference/commuter_cpp.html</loc>
+    <loc>https://folkehelseinstituttet.github.io/spread//reference/commuter_cpp.html</loc>
   </url>
   <url>
-    <loc>https://folkehelseinstituttet.github.io/fhi//reference/norway_commuters_2017.html</loc>
+    <loc>https://folkehelseinstituttet.github.io/spread//reference/norway_commuters_2017.html</loc>
   </url>
   <url>
-    <loc>https://folkehelseinstituttet.github.io/fhi//reference/norway_seiiar_noinfected_2017.html</loc>
+    <loc>https://folkehelseinstituttet.github.io/spread//reference/norway_seiiar_noinfected_2017.html</loc>
   </url>
   <url>
-    <loc>https://folkehelseinstituttet.github.io/fhi//reference/norway_seiiar_oslo_2017.html</loc>
+    <loc>https://folkehelseinstituttet.github.io/spread//reference/norway_seiiar_oslo_2017.html</loc>
   </url>
   <url>
-    <loc>https://folkehelseinstituttet.github.io/fhi//articles/commuter_model.html</loc>
+    <loc>https://folkehelseinstituttet.github.io/spread//articles/commuter_model.html</loc>
   </url>
 </urlset>
