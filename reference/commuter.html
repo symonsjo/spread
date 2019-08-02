@@ -70,7 +70,7 @@ is based upon a published model." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">spread</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2019.5.19</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2019.8.2</span>
       </span>
     </div>
 
@@ -142,18 +142,19 @@ is based upon a published model.</p>
     <pre class="usage"><span class='fu'>commuter</span>(<span class='kw'>seiiar</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='https://www.rdocumentation.org/packages/spread/topics/norway_seiiar_oslo_2017'>norway_seiiar_oslo_2017</a></span>,
   <span class='kw'>commuters</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='https://www.rdocumentation.org/packages/spread/topics/norway_commuters_2017'>norway_commuters_2017</a></span>, <span class='kw'>r0</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>beta</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>latent_period</span> <span class='kw'>=</span> <span class='fl'>1.9</span>, <span class='kw'>infectious_period</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>asymptomatic_prob</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>asymptomatic_relative_infectiousness</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>N</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>M</span> <span class='kw'>=</span> <span class='fl'>7</span> * <span class='fl'>8</span>)</pre>
+  <span class='kw'>asymptomatic_relative_infectiousness</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>days_simulation</span> <span class='kw'>=</span> <span class='fl'>7</span> * <span class='fl'>8</span>,
+  <span class='kw'>N</span> <span class='kw'>=</span> <span class='fl'>1</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>seiiar</th>
-      <td><p>Data frame</p></td>
+      <td><p>Data frame containing `location_code`, `S`, `E`, `I`, `Ia`, and `R` for the entire population</p></td>
     </tr>
     <tr>
       <th>commuters</th>
-      <td><p>Data frame</p></td>
+      <td><p>Data frame comtaining `from`, `to`, `n` for the number of people who travel</p></td>
     </tr>
     <tr>
       <th>r0</th>
@@ -180,12 +181,12 @@ is based upon a published model.</p>
       <td><p>Float, Relative infectiousness of asymptomatic infectious</p></td>
     </tr>
     <tr>
-      <th>N</th>
-      <td><p>Int = 1 int, Number of repetitions</p></td>
+      <th>days_simulation</th>
+      <td><p>Int, Number of days to simulate</p></td>
     </tr>
     <tr>
-      <th>M</th>
-      <td><p>Int, Number of days</p></td>
+      <th>N</th>
+      <td><p>Int = 1 int, Number of repetitions</p></td>
     </tr>
     </table>
     
