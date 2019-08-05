@@ -47,6 +47,9 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
+      <a href="../articles/including_vax.html">Including vax data</a>
+    </li>
+    <li>
       <a href="../articles/commuter_model.html">Commuter Model</a>
     </li>
   </ul>
@@ -111,7 +114,21 @@
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="st">  </span>stringr<span class="op">::</span><span class="kw"><a href="https://stringr.tidyverse.org/reference/str_detect.html">str_detect</a></span>(location_code,<span class="st">"^municip"</span>) <span class="op">&amp;</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb2-4" data-line-number="4"><span class="st">  </span>vax<span class="op">==</span><span class="st">"measles"</span>,</a>
 <a class="sourceLine" id="cb2-5" data-line-number="5">  <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"location_code"</span>,<span class="st">"proportion"</span>)</a>
-<a class="sourceLine" id="cb2-6" data-line-number="6">  ]</a></code></pre></div>
+<a class="sourceLine" id="cb2-6" data-line-number="6">  ]</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/print">print</a></span>(vax_measles)</a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt;      location_code proportion</span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt;   1:   municip0101  0.9373297</span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt;   2:   municip0104  0.9001560</span></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt;   3:   municip0105  0.9363201</span></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt;   4:   municip0106  0.9128431</span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt;   5:   municip0111  0.9031008</span></a>
+<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">#&gt;  ---                         </span></a>
+<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co">#&gt; 418:   municip5051  0.8823529</span></a>
+<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="co">#&gt; 419:   municip5052  0.9241643</span></a>
+<a class="sourceLine" id="cb2-18" data-line-number="18"><span class="co">#&gt; 420:   municip5053  0.9509804</span></a>
+<a class="sourceLine" id="cb2-19" data-line-number="19"><span class="co">#&gt; 421:   municip5054  0.9160637</span></a>
+<a class="sourceLine" id="cb2-20" data-line-number="20"><span class="co">#&gt; 422:   municip5061  0.9241643</span></a></code></pre></div>
 <p>We then use the function <code>convert_blank_seiiar_with_vax</code> to combine the two:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">norway_seiiar_measles_noinfected_<span class="dv">2017</span> &lt;-<span class="st"> </span>spread<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/spread/topics/convert_blank_seiiar_with_vax">convert_blank_seiiar_with_vax</a></span>(</a>
 <a class="sourceLine" id="cb3-2" data-line-number="2">  <span class="dt">seiiar =</span> spread<span class="op">::</span>norway_seiiar_noinfected_<span class="dv">2017</span>, </a>
@@ -135,19 +152,10 @@
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">norway_seiiar_measles_oslo_<span class="dv">2017</span> &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/data.table/topics/copy">copy</a></span>(norway_seiiar_measles_noinfected_<span class="dv">2017</span>)</a>
 <a class="sourceLine" id="cb5-2" data-line-number="2">norway_seiiar_measles_oslo_<span class="dv">2017</span>[location_code <span class="op">==</span><span class="st"> "municip0301"</span>, I <span class="op">:</span><span class="er">=</span><span class="st"> </span><span class="dv">10</span>]</a>
 <a class="sourceLine" id="cb5-3" data-line-number="3">norway_seiiar_measles_oslo_<span class="dv">2017</span>[location_code <span class="op">==</span><span class="st"> "municip0301"</span>, S <span class="op">:</span><span class="er">=</span><span class="st"> </span>S <span class="op">-</span><span class="st"> </span>I]</a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/print">print</a></span>(norway_seiiar_measles_oslo_<span class="dv">2017</span>)  </a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co">#&gt;      location_code    S E I Ia     R</span></a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#&gt;   1:   municip0101 1930 0 0  0 28860</span></a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">#&gt;   2:   municip0104 3236 0 0  0 29171</span></a>
-<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">#&gt;   3:   municip0105 3510 0 0  0 51617</span></a>
-<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">#&gt;   4:   municip0106 6983 0 0  0 73138</span></a>
-<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">#&gt;   5:   municip0111  438 0 0  0  4079</span></a>
-<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="co">#&gt;  ---                                </span></a>
-<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co">#&gt; 418:   municip5051  604 0 0  0  4534</span></a>
-<a class="sourceLine" id="cb5-13" data-line-number="13"><span class="co">#&gt; 419:   municip5052   44 0 0  0   540</span></a>
-<a class="sourceLine" id="cb5-14" data-line-number="14"><span class="co">#&gt; 420:   municip5053  333 0 0  0  6467</span></a>
-<a class="sourceLine" id="cb5-15" data-line-number="15"><span class="co">#&gt; 421:   municip5054  848 0 0  0  9260</span></a>
-<a class="sourceLine" id="cb5-16" data-line-number="16"><span class="co">#&gt; 422:   municip5061  154 0 0  0  1872</span></a></code></pre></div>
+<a class="sourceLine" id="cb5-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/print">print</a></span>(norway_seiiar_measles_oslo_<span class="dv">2017</span>[location_code<span class="op">==</span><span class="st">"municip0301"</span>])  </a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#&gt;    location_code     S E  I Ia      R</span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">#&gt; 1:   municip0301 59765 0 10  0 606984</span></a></code></pre></div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
