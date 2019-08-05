@@ -10,6 +10,9 @@
     <loc>https://folkehelseinstituttet.github.io/spread//reference/commuter_cpp.html</loc>
   </url>
   <url>
+    <loc>https://folkehelseinstituttet.github.io/spread//reference/convert_blank_seiiar_with_vax.html</loc>
+  </url>
+  <url>
     <loc>https://folkehelseinstituttet.github.io/spread//reference/norway_commuters_2017.html</loc>
   </url>
   <url>
@@ -26,5 +29,8 @@
   </url>
   <url>
     <loc>https://folkehelseinstituttet.github.io/spread//articles/commuter_model.html</loc>
+  </url>
+  <url>
+    <loc>https://folkehelseinstituttet.github.io/spread//articles/including_vax.html</loc>
   </url>
 </urlset>

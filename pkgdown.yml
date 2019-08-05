@@ -3,6 +3,7 @@ pkgdown: 1.3.0
 pkgdown_sha: ~
 articles:
   commuter_model: commuter_model.html
+  including_vax: including_vax.html
 urls:
   reference: https://folkehelseinstituttet.github.io/spread//reference
   article: https://folkehelseinstituttet.github.io/spread//articles
