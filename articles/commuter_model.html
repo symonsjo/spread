@@ -7,8 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Commuter Model • spread</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><meta property="og:title" content="Commuter Model">
 <meta property="og:description" content="">
 <meta name="twitter:card" content="summary">
@@ -30,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">spread</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2019.8.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2020.1.24</span>
       </span>
     </div>
 
@@ -80,13 +81,14 @@
 <!--/.navbar -->
 
       
+
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1>Commuter Model</h1>
                         <h4 class="author">Richard White</h4>
             
-            <h4 class="date">2019-08-05</h4>
+            <h4 class="date">2020-01-24</h4>
       
       
       <div class="hidden name"><code>commuter_model.Rmd</code></div>
@@ -98,13 +100,13 @@
 <div id="background" class="section level1">
 <h1 class="hasAnchor">
 <a href="#background" class="anchor"></a>Background</h1>
-<p>This model is a stochastic SEIIaR (susceptible, exposed, infectious, infectious asymptomatic, recovered) metapopulation model. Each location has a local infection system, while the locations are connected by people who commute each day. The model differentiates between day and night. During the day you can infect/be infected in the location where you work, while during the night you can infect/be infected in the location where you live. It is the same commuters who travel back and forth each day. At the start of a day, all commuters are sent to their work location, where they mix for 12 hours. The commuters are then sent to their respective home locations, where they mix for 12 hours. The model is based upon a published model.</p>
+<p>This model is a stochastic SEIIaR (susceptible, exposed, infectious, infectious asymptomatic, recovered) metapopulation model. Each location has a local infection system, while the locations are connected by people who commute each day. The model differentiates between day and night. During the day you can infect/be infected in the location where you work, while during the night you can infect/be infected in the location where you live. It is the same commuters who travel back and forth each day. At the start of a day, all commuters are sent to their work location, where they mix for 12 hours. The commuters are then sent to their respective home locations, where they mix for 12 hours. The model is loosely based upon a published model by Engebretsen (2019).</p>
 </div>
 <div id="data-required" class="section level1">
 <h1 class="hasAnchor">
 <a href="#data-required" class="anchor"></a>Data required</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(ggplot2)</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(data.table)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(ggplot2)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(data.table)</a></code></pre></div>
 <p><code>seiiar</code> is a dataset that contains the following variables for the entire population you want to model:</p>
 <ul>
 <li>
@@ -121,69 +123,69 @@
 <code>R</code> the starting value of recovered people</li>
 </ul>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># no one in Norway is infected, and everyone is susceptible</span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">spread<span class="op">::</span>norway_seiiar_noinfected_<span class="dv">2017</span></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">#&gt;      location_code     S E I Ia R</span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#&gt;   1:   municip0101 30790 0 0  0 0</span></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt;   2:   municip0104 32407 0 0  0 0</span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt;   3:   municip0105 55127 0 0  0 0</span></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt;   4:   municip0106 80121 0 0  0 0</span></a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt;   5:   municip0111  4517 0 0  0 0</span></a>
-<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt;  ---                             </span></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt; 418:   municip5051  5138 0 0  0 0</span></a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt; 419:   municip5052   584 0 0  0 0</span></a>
-<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt; 420:   municip5053  6800 0 0  0 0</span></a>
-<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt; 421:   municip5054 10108 0 0  0 0</span></a>
-<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt; 422:   municip5061  2026 0 0  0 0</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">spread<span class="op">::</span>norway_seiiar_noinfected_<span class="dv">2017</span>_b2020</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">#&gt;      location_code      S E I Ia R</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#&gt;   1:   municip0301 666759 0 0  0 0</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt;   2:   municip1101  14899 0 0  0 0</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt;   3:   municip1103 140856 0 0  0 0</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt;   4:   municip1106  37166 0 0  0 0</span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt;   5:   municip1108  76742 0 0  0 0</span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt;  ---                              </span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt; 352:   municip5440    991 0 0  0 0</span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt; 353:   municip5441   2911 0 0  0 0</span></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt; 354:   municip5442    951 0 0  0 0</span></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt; 355:   municip5443   2267 0 0  0 0</span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt; 356:   municip5444  10199 0 0  0 0</span></a>
 <a class="sourceLine" id="cb2-15" data-line-number="15"></a>
 <a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co"># 10 people in Oslo are infected, and everyone is susceptible</span></a>
-<a class="sourceLine" id="cb2-17" data-line-number="17">spread<span class="op">::</span>norway_seiiar_oslo_<span class="dv">2017</span></a>
-<a class="sourceLine" id="cb2-18" data-line-number="18"><span class="co">#&gt;      location_code     S E I Ia R</span></a>
-<a class="sourceLine" id="cb2-19" data-line-number="19"><span class="co">#&gt;   1:   municip0101 30790 0 0  0 0</span></a>
-<a class="sourceLine" id="cb2-20" data-line-number="20"><span class="co">#&gt;   2:   municip0104 32407 0 0  0 0</span></a>
-<a class="sourceLine" id="cb2-21" data-line-number="21"><span class="co">#&gt;   3:   municip0105 55127 0 0  0 0</span></a>
-<a class="sourceLine" id="cb2-22" data-line-number="22"><span class="co">#&gt;   4:   municip0106 80121 0 0  0 0</span></a>
-<a class="sourceLine" id="cb2-23" data-line-number="23"><span class="co">#&gt;   5:   municip0111  4517 0 0  0 0</span></a>
-<a class="sourceLine" id="cb2-24" data-line-number="24"><span class="co">#&gt;  ---                             </span></a>
-<a class="sourceLine" id="cb2-25" data-line-number="25"><span class="co">#&gt; 418:   municip5051  5138 0 0  0 0</span></a>
-<a class="sourceLine" id="cb2-26" data-line-number="26"><span class="co">#&gt; 419:   municip5052   584 0 0  0 0</span></a>
-<a class="sourceLine" id="cb2-27" data-line-number="27"><span class="co">#&gt; 420:   municip5053  6800 0 0  0 0</span></a>
-<a class="sourceLine" id="cb2-28" data-line-number="28"><span class="co">#&gt; 421:   municip5054 10108 0 0  0 0</span></a>
-<a class="sourceLine" id="cb2-29" data-line-number="29"><span class="co">#&gt; 422:   municip5061  2026 0 0  0 0</span></a>
+<a class="sourceLine" id="cb2-17" data-line-number="17">spread<span class="op">::</span>norway_seiiar_oslo_<span class="dv">2017</span>_b2020</a>
+<a class="sourceLine" id="cb2-18" data-line-number="18"><span class="co">#&gt;      location_code      S E  I Ia R</span></a>
+<a class="sourceLine" id="cb2-19" data-line-number="19"><span class="co">#&gt;   1:   municip0301 666749 0 10  0 0</span></a>
+<a class="sourceLine" id="cb2-20" data-line-number="20"><span class="co">#&gt;   2:   municip1101  14899 0  0  0 0</span></a>
+<a class="sourceLine" id="cb2-21" data-line-number="21"><span class="co">#&gt;   3:   municip1103 140856 0  0  0 0</span></a>
+<a class="sourceLine" id="cb2-22" data-line-number="22"><span class="co">#&gt;   4:   municip1106  37166 0  0  0 0</span></a>
+<a class="sourceLine" id="cb2-23" data-line-number="23"><span class="co">#&gt;   5:   municip1108  76742 0  0  0 0</span></a>
+<a class="sourceLine" id="cb2-24" data-line-number="24"><span class="co">#&gt;  ---                               </span></a>
+<a class="sourceLine" id="cb2-25" data-line-number="25"><span class="co">#&gt; 352:   municip5440    991 0  0  0 0</span></a>
+<a class="sourceLine" id="cb2-26" data-line-number="26"><span class="co">#&gt; 353:   municip5441   2911 0  0  0 0</span></a>
+<a class="sourceLine" id="cb2-27" data-line-number="27"><span class="co">#&gt; 354:   municip5442    951 0  0  0 0</span></a>
+<a class="sourceLine" id="cb2-28" data-line-number="28"><span class="co">#&gt; 355:   municip5443   2267 0  0  0 0</span></a>
+<a class="sourceLine" id="cb2-29" data-line-number="29"><span class="co">#&gt; 356:   municip5444  10199 0  0  0 0</span></a>
 <a class="sourceLine" id="cb2-30" data-line-number="30"></a>
 <a class="sourceLine" id="cb2-31" data-line-number="31"><span class="co"># no one in Norway is infected, and childhood vaccination data is used to</span></a>
 <a class="sourceLine" id="cb2-32" data-line-number="32"><span class="co"># estimate the number of "recovered" (i.e. non-susceptible) people for measles</span></a>
-<a class="sourceLine" id="cb2-33" data-line-number="33">spread<span class="op">::</span>norway_seiiar_measles_noinfected_<span class="dv">2017</span></a>
-<a class="sourceLine" id="cb2-34" data-line-number="34"><span class="co">#&gt;      location_code    S E I Ia     R</span></a>
-<a class="sourceLine" id="cb2-35" data-line-number="35"><span class="co">#&gt;   1:   municip0101 1930 0 0  0 28860</span></a>
-<a class="sourceLine" id="cb2-36" data-line-number="36"><span class="co">#&gt;   2:   municip0104 3236 0 0  0 29171</span></a>
-<a class="sourceLine" id="cb2-37" data-line-number="37"><span class="co">#&gt;   3:   municip0105 3510 0 0  0 51617</span></a>
-<a class="sourceLine" id="cb2-38" data-line-number="38"><span class="co">#&gt;   4:   municip0106 6983 0 0  0 73138</span></a>
-<a class="sourceLine" id="cb2-39" data-line-number="39"><span class="co">#&gt;   5:   municip0111  438 0 0  0  4079</span></a>
-<a class="sourceLine" id="cb2-40" data-line-number="40"><span class="co">#&gt;  ---                                </span></a>
-<a class="sourceLine" id="cb2-41" data-line-number="41"><span class="co">#&gt; 418:   municip5051  604 0 0  0  4534</span></a>
-<a class="sourceLine" id="cb2-42" data-line-number="42"><span class="co">#&gt; 419:   municip5052   44 0 0  0   540</span></a>
-<a class="sourceLine" id="cb2-43" data-line-number="43"><span class="co">#&gt; 420:   municip5053  333 0 0  0  6467</span></a>
-<a class="sourceLine" id="cb2-44" data-line-number="44"><span class="co">#&gt; 421:   municip5054  848 0 0  0  9260</span></a>
-<a class="sourceLine" id="cb2-45" data-line-number="45"><span class="co">#&gt; 422:   municip5061  154 0 0  0  1872</span></a>
+<a class="sourceLine" id="cb2-33" data-line-number="33">spread<span class="op">::</span>norway_seiiar_measles_noinfected_<span class="dv">2017</span>_b2020</a>
+<a class="sourceLine" id="cb2-34" data-line-number="34"><span class="co">#&gt;      location_code     S E I Ia      R</span></a>
+<a class="sourceLine" id="cb2-35" data-line-number="35"><span class="co">#&gt;   1:   municip0301 59775 0 0  0 606984</span></a>
+<a class="sourceLine" id="cb2-36" data-line-number="36"><span class="co">#&gt;   2:   municip1101  1027 0 0  0  13872</span></a>
+<a class="sourceLine" id="cb2-37" data-line-number="37"><span class="co">#&gt;   3:   municip1103  8868 0 0  0 131988</span></a>
+<a class="sourceLine" id="cb2-38" data-line-number="38"><span class="co">#&gt;   4:   municip1106  1557 0 0  0  35609</span></a>
+<a class="sourceLine" id="cb2-39" data-line-number="39"><span class="co">#&gt;   5:   municip1108  3058 0 0  0  73684</span></a>
+<a class="sourceLine" id="cb2-40" data-line-number="40"><span class="co">#&gt;  ---                                  </span></a>
+<a class="sourceLine" id="cb2-41" data-line-number="41"><span class="co">#&gt; 352:   municip5440    56 0 0  0    935</span></a>
+<a class="sourceLine" id="cb2-42" data-line-number="42"><span class="co">#&gt; 353:   municip5441   513 0 0  0   2398</span></a>
+<a class="sourceLine" id="cb2-43" data-line-number="43"><span class="co">#&gt; 354:   municip5442    72 0 0  0    879</span></a>
+<a class="sourceLine" id="cb2-44" data-line-number="44"><span class="co">#&gt; 355:   municip5443   150 0 0  0   2117</span></a>
+<a class="sourceLine" id="cb2-45" data-line-number="45"><span class="co">#&gt; 356:   municip5444  1149 0 0  0   9050</span></a>
 <a class="sourceLine" id="cb2-46" data-line-number="46"></a>
 <a class="sourceLine" id="cb2-47" data-line-number="47"><span class="co"># 10 people in Oslo is infected, and childhood vaccination data is used to</span></a>
 <a class="sourceLine" id="cb2-48" data-line-number="48"><span class="co"># estimate the number of "recovered" (i.e. non-susceptible) people for measles</span></a>
-<a class="sourceLine" id="cb2-49" data-line-number="49">spread<span class="op">::</span>norway_seiiar_measles_oslo_<span class="dv">2017</span></a>
-<a class="sourceLine" id="cb2-50" data-line-number="50"><span class="co">#&gt;      location_code    S E I Ia     R</span></a>
-<a class="sourceLine" id="cb2-51" data-line-number="51"><span class="co">#&gt;   1:   municip0101 1930 0 0  0 28860</span></a>
-<a class="sourceLine" id="cb2-52" data-line-number="52"><span class="co">#&gt;   2:   municip0104 3236 0 0  0 29171</span></a>
-<a class="sourceLine" id="cb2-53" data-line-number="53"><span class="co">#&gt;   3:   municip0105 3510 0 0  0 51617</span></a>
-<a class="sourceLine" id="cb2-54" data-line-number="54"><span class="co">#&gt;   4:   municip0106 6983 0 0  0 73138</span></a>
-<a class="sourceLine" id="cb2-55" data-line-number="55"><span class="co">#&gt;   5:   municip0111  438 0 0  0  4079</span></a>
-<a class="sourceLine" id="cb2-56" data-line-number="56"><span class="co">#&gt;  ---                                </span></a>
-<a class="sourceLine" id="cb2-57" data-line-number="57"><span class="co">#&gt; 418:   municip5051  604 0 0  0  4534</span></a>
-<a class="sourceLine" id="cb2-58" data-line-number="58"><span class="co">#&gt; 419:   municip5052   44 0 0  0   540</span></a>
-<a class="sourceLine" id="cb2-59" data-line-number="59"><span class="co">#&gt; 420:   municip5053  333 0 0  0  6467</span></a>
-<a class="sourceLine" id="cb2-60" data-line-number="60"><span class="co">#&gt; 421:   municip5054  848 0 0  0  9260</span></a>
-<a class="sourceLine" id="cb2-61" data-line-number="61"><span class="co">#&gt; 422:   municip5061  154 0 0  0  1872</span></a>
+<a class="sourceLine" id="cb2-49" data-line-number="49">spread<span class="op">::</span>norway_seiiar_measles_oslo_<span class="dv">2017</span>_b2020</a>
+<a class="sourceLine" id="cb2-50" data-line-number="50"><span class="co">#&gt;      location_code     S E  I Ia      R</span></a>
+<a class="sourceLine" id="cb2-51" data-line-number="51"><span class="co">#&gt;   1:   municip0301 59765 0 10  0 606984</span></a>
+<a class="sourceLine" id="cb2-52" data-line-number="52"><span class="co">#&gt;   2:   municip1101  1027 0  0  0  13872</span></a>
+<a class="sourceLine" id="cb2-53" data-line-number="53"><span class="co">#&gt;   3:   municip1103  8868 0  0  0 131988</span></a>
+<a class="sourceLine" id="cb2-54" data-line-number="54"><span class="co">#&gt;   4:   municip1106  1557 0  0  0  35609</span></a>
+<a class="sourceLine" id="cb2-55" data-line-number="55"><span class="co">#&gt;   5:   municip1108  3058 0  0  0  73684</span></a>
+<a class="sourceLine" id="cb2-56" data-line-number="56"><span class="co">#&gt;  ---                                   </span></a>
+<a class="sourceLine" id="cb2-57" data-line-number="57"><span class="co">#&gt; 352:   municip5440    56 0  0  0    935</span></a>
+<a class="sourceLine" id="cb2-58" data-line-number="58"><span class="co">#&gt; 353:   municip5441   513 0  0  0   2398</span></a>
+<a class="sourceLine" id="cb2-59" data-line-number="59"><span class="co">#&gt; 354:   municip5442    72 0  0  0    879</span></a>
+<a class="sourceLine" id="cb2-60" data-line-number="60"><span class="co">#&gt; 355:   municip5443   150 0  0  0   2117</span></a>
+<a class="sourceLine" id="cb2-61" data-line-number="61"><span class="co">#&gt; 356:   municip5444  1149 0  0  0   9050</span></a>
 <a class="sourceLine" id="cb2-62" data-line-number="62"></a>
 <a class="sourceLine" id="cb2-63" data-line-number="63"><span class="co"># we can take a closer look at Oslo</span></a>
-<a class="sourceLine" id="cb2-64" data-line-number="64">spread<span class="op">::</span>norway_seiiar_measles_oslo_<span class="dv">2017</span>[location_code<span class="op">==</span><span class="st">"municip0301"</span>]</a>
+<a class="sourceLine" id="cb2-64" data-line-number="64">spread<span class="op">::</span>norway_seiiar_measles_oslo_<span class="dv">2017</span>_b2020[location_code<span class="op">==</span><span class="st">"municip0301"</span>]</a>
 <a class="sourceLine" id="cb2-65" data-line-number="65"><span class="co">#&gt;    location_code     S E  I Ia      R</span></a>
 <a class="sourceLine" id="cb2-66" data-line-number="66"><span class="co">#&gt; 1:   municip0301 59765 0 10  0 606984</span></a></code></pre></div>
 <p><code>commuters</code> is a dataset that contains the following variables:</p>
@@ -196,19 +198,19 @@
 <code>n</code> the number of people this applies to</li>
 </ul>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># we provide the number of municipal commuters in Norway in 2017</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">spread<span class="op">::</span>norway_commuters_<span class="dv">2017</span></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co">#&gt;               from          to   n</span></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">#&gt;     1: municip0101 municip0104  84</span></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">#&gt;     2: municip0101 municip0105 837</span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt;     3: municip0101 municip0106 698</span></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">#&gt;     4: municip0101 municip0111  32</span></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">#&gt;     5: municip0101 municip0118 265</span></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt;    ---                            </span></a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">#&gt; 28919: municip5061 municip5028   1</span></a>
-<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">#&gt; 28920: municip5061 municip5029   2</span></a>
-<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">#&gt; 28921: municip5061 municip5030   1</span></a>
-<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">#&gt; 28922: municip5061 municip5035   3</span></a>
-<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">#&gt; 28923: municip5061 municip5037   1</span></a></code></pre></div>
+<a class="sourceLine" id="cb3-2" data-line-number="2">spread<span class="op">::</span>norway_commuters_<span class="dv">2017</span>_b2020</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co">#&gt;               from          to    n</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">#&gt;     1: municip0301 municip1101   71</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">#&gt;     2: municip0301 municip1103 1423</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt;     3: municip0301 municip1106  332</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">#&gt;     4: municip0301 municip1108  652</span></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">#&gt;     5: municip0301 municip1111    5</span></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt;    ---                             </span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">#&gt; 23948: municip5444 municip5439    3</span></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">#&gt; 23949: municip5444 municip5440    1</span></a>
+<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">#&gt; 23950: municip5444 municip5441   33</span></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">#&gt; 23951: municip5444 municip5442   12</span></a>
+<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">#&gt; 23952: municip5444 municip5443    8</span></a></code></pre></div>
 <p><code>r0</code> is the basic reproductive number.</p>
 <p><code>latent_period</code> is the average number of days from when a person is exposed until they are infectious.</p>
 <p><code>asymptomatic_prob</code> is the probability that an infectious person is asymptomatic.</p>
@@ -219,11 +221,11 @@
 <div id="example" class="section level1">
 <h1 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h1>
-<p>We simulate one measles outbreak using the datasets <code><a href="../reference/norway_seiiar_measles_oslo_2017.html">spread::norway_seiiar_measles_oslo_2017</a></code> and spread::norway_commuters_2017:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Random">set.seed</a></span>(<span class="dv">4</span>)</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">d &lt;-<span class="st"> </span>spread<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/spread/topics/commuter">commuter</a></span>(</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">  <span class="dt">seiiar=</span>spread<span class="op">::</span>norway_seiiar_measles_oslo_<span class="dv">2017</span>,</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">  <span class="dt">commuters=</span>spread<span class="op">::</span>norway_commuters_<span class="dv">2017</span>,</a>
+<p>We simulate one measles outbreak using the datasets <code><a href="../reference/norway_seiiar_measles_oslo_2017_b2020.html">spread::norway_seiiar_measles_oslo_2017_b2020</a></code> and <code><a href="../reference/norway_commuters_2017_b2020.html">spread::norway_commuters_2017_b2020</a></code>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span>(<span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">d &lt;-<span class="st"> </span>spread<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/spread/man/commuter.html">commuter</a></span>(</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">  <span class="dt">seiiar=</span>spread<span class="op">::</span>norway_seiiar_measles_oslo_<span class="dv">2017</span>_b2020,</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">  <span class="dt">commuters=</span>spread<span class="op">::</span>norway_commuters_<span class="dv">2017</span>_b2020,</a>
 <a class="sourceLine" id="cb4-5" data-line-number="5">  <span class="dt">r0=</span><span class="dv">14</span>,</a>
 <a class="sourceLine" id="cb4-6" data-line-number="6">  <span class="dt">latent_period =</span> <span class="dv">8</span>,</a>
 <a class="sourceLine" id="cb4-7" data-line-number="7">  <span class="dt">infectious_period =</span> <span class="dv">5</span>,</a>
@@ -233,150 +235,151 @@
 <a class="sourceLine" id="cb4-11" data-line-number="11">  <span class="dt">N=</span><span class="dv">1</span></a>
 <a class="sourceLine" id="cb4-12" data-line-number="12">)</a>
 <a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co">#&gt; Starting to add edges, printing every 1000 edge</span></a>
-<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="co">#&gt; 1000 2000 3000 4000 5000 6000 7000 8000 9000 10000 11000 12000 13000 14000 15000 16000 17000 18000 19000 20000 21000 22000 23000 24000 25000 26000 27000 28000 Found 28923 edges</span></a>
+<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="co">#&gt; 1000 2000 3000 4000 5000 6000 7000 8000 9000 10000 11000 12000 13000 14000 15000 16000 17000 18000 19000 20000 21000 22000 23000 Found 23894 edges</span></a>
 <a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co">#&gt; Running 1 simulations of 63 days</span></a>
 <a class="sourceLine" id="cb4-16" data-line-number="16"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb4-17" data-line-number="17"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb4-18" data-line-number="18"><span class="co">#&gt; Finished all simulations</span></a></code></pre></div>
 <p>Inspecting the data from Oslo:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">d[location_code<span class="op">==</span><span class="st">"municip0301"</span>]</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">#&gt;     location_code week day is_6pm     S  E  I Ia      R incidence    pop</span></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">#&gt;  1:   municip0301    1   1   TRUE 59765  2  9  0 606985         0 666761</span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#&gt;  2:   municip0301    1   2   TRUE 59762  4  7  0 606988         1 666761</span></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co">#&gt;  3:   municip0301    1   3   TRUE 59761  4  5  0 606991         1 666761</span></a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#&gt;  4:   municip0301    1   4   TRUE 59760  5  4  0 606992         0 666761</span></a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">#&gt;  5:   municip0301    1   5   TRUE 59760  5  2  0 606994         0 666761</span></a>
-<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">#&gt;  6:   municip0301    1   6   TRUE 59759  5  2  0 606995         1 666761</span></a>
-<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">#&gt;  7:   municip0301    1   7   TRUE 59757  7  2  0 606995         0 666761</span></a>
-<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">#&gt;  8:   municip0301    2   8   TRUE 59756  8  2  0 606995         0 666761</span></a>
-<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="co">#&gt;  9:   municip0301    2   9   TRUE 59756  6  4  0 606995         2 666761</span></a>
-<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co">#&gt; 10:   municip0301    2  10   TRUE 59755  6  4  0 606996         1 666761</span></a>
-<a class="sourceLine" id="cb5-13" data-line-number="13"><span class="co">#&gt; 11:   municip0301    2  11   TRUE 59755  6  3  0 606997         0 666761</span></a>
-<a class="sourceLine" id="cb5-14" data-line-number="14"><span class="co">#&gt; 12:   municip0301    2  12   TRUE 59755  5  3  0 606998         1 666761</span></a>
-<a class="sourceLine" id="cb5-15" data-line-number="15"><span class="co">#&gt; 13:   municip0301    2  13   TRUE 59753  7  3  0 606998         0 666761</span></a>
-<a class="sourceLine" id="cb5-16" data-line-number="16"><span class="co">#&gt; 14:   municip0301    2  14   TRUE 59753  6  4  0 606998         1 666761</span></a>
-<a class="sourceLine" id="cb5-17" data-line-number="17"><span class="co">#&gt; 15:   municip0301    3  15   TRUE 59753  4  6  0 606998         2 666761</span></a>
-<a class="sourceLine" id="cb5-18" data-line-number="18"><span class="co">#&gt; 16:   municip0301    3  16   TRUE 59750  5  8  0 606998         2 666761</span></a>
-<a class="sourceLine" id="cb5-19" data-line-number="19"><span class="co">#&gt; 17:   municip0301    3  17   TRUE 59747  8  7  0 606999         0 666761</span></a>
-<a class="sourceLine" id="cb5-20" data-line-number="20"><span class="co">#&gt; 18:   municip0301    3  18   TRUE 59747  7  6  0 607001         0 666761</span></a>
-<a class="sourceLine" id="cb5-21" data-line-number="21"><span class="co">#&gt; 19:   municip0301    3  19   TRUE 59746  7  6  0 607002         1 666761</span></a>
-<a class="sourceLine" id="cb5-22" data-line-number="22"><span class="co">#&gt; 20:   municip0301    3  20   TRUE 59746  7  5  0 607003         0 666761</span></a>
-<a class="sourceLine" id="cb5-23" data-line-number="23"><span class="co">#&gt; 21:   municip0301    3  21   TRUE 59745  7  5  0 607004         1 666761</span></a>
-<a class="sourceLine" id="cb5-24" data-line-number="24"><span class="co">#&gt; 22:   municip0301    4  22   TRUE 59745  6  3  0 607007         2 666761</span></a>
-<a class="sourceLine" id="cb5-25" data-line-number="25"><span class="co">#&gt; 23:   municip0301    4  23   TRUE 59744  7  2  0 607008         0 666761</span></a>
-<a class="sourceLine" id="cb5-26" data-line-number="26"><span class="co">#&gt; 24:   municip0301    4  24   TRUE 59744  6  3  0 607008         1 666761</span></a>
-<a class="sourceLine" id="cb5-27" data-line-number="27"><span class="co">#&gt; 25:   municip0301    4  25   TRUE 59743  5  5  0 607008         2 666761</span></a>
-<a class="sourceLine" id="cb5-28" data-line-number="28"><span class="co">#&gt; 26:   municip0301    4  26   TRUE 59741  7  4  0 607009         0 666761</span></a>
-<a class="sourceLine" id="cb5-29" data-line-number="29"><span class="co">#&gt; 27:   municip0301    4  27   TRUE 59737 11  4  0 607009         0 666761</span></a>
-<a class="sourceLine" id="cb5-30" data-line-number="30"><span class="co">#&gt; 28:   municip0301    4  28   TRUE 59734 13  5  0 607009         1 666761</span></a>
-<a class="sourceLine" id="cb5-31" data-line-number="31"><span class="co">#&gt; 29:   municip0301    5  29   TRUE 59733 13  6  0 607009         1 666761</span></a>
-<a class="sourceLine" id="cb5-32" data-line-number="32"><span class="co">#&gt; 30:   municip0301    5  30   TRUE 59732 11  7  0 607011         3 666761</span></a>
-<a class="sourceLine" id="cb5-33" data-line-number="33"><span class="co">#&gt; 31:   municip0301    5  31   TRUE 59731 11  7  0 607012         1 666761</span></a>
-<a class="sourceLine" id="cb5-34" data-line-number="34"><span class="co">#&gt; 32:   municip0301    5  32   TRUE 59730 10  9  0 607012         2 666761</span></a>
-<a class="sourceLine" id="cb5-35" data-line-number="35"><span class="co">#&gt; 33:   municip0301    5  33   TRUE 59728 12  7  0 607014         0 666761</span></a>
-<a class="sourceLine" id="cb5-36" data-line-number="36"><span class="co">#&gt; 34:   municip0301    5  34   TRUE 59724 16  7  0 607014         0 666761</span></a>
-<a class="sourceLine" id="cb5-37" data-line-number="37"><span class="co">#&gt; 35:   municip0301    5  35   TRUE 59723 16  8  0 607014         1 666761</span></a>
-<a class="sourceLine" id="cb5-38" data-line-number="38"><span class="co">#&gt; 36:   municip0301    6  36   TRUE 59721 17  7  0 607016         1 666761</span></a>
-<a class="sourceLine" id="cb5-39" data-line-number="39"><span class="co">#&gt; 37:   municip0301    6  37   TRUE 59720 16  8  0 607017         2 666761</span></a>
-<a class="sourceLine" id="cb5-40" data-line-number="40"><span class="co">#&gt; 38:   municip0301    6  38   TRUE 59720 16  7  0 607018         0 666761</span></a>
-<a class="sourceLine" id="cb5-41" data-line-number="41"><span class="co">#&gt; 39:   municip0301    6  39   TRUE 59715 21  7  0 607018         1 666761</span></a>
-<a class="sourceLine" id="cb5-42" data-line-number="42"><span class="co">#&gt; 40:   municip0301    6  40   TRUE 59712 23  6  0 607020         1 666761</span></a>
-<a class="sourceLine" id="cb5-43" data-line-number="43"><span class="co">#&gt; 41:   municip0301    6  41   TRUE 59710 21 10  0 607020         2 666761</span></a>
-<a class="sourceLine" id="cb5-44" data-line-number="44"><span class="co">#&gt; 42:   municip0301    6  42   TRUE 59709 21  7  0 607024         1 666761</span></a>
-<a class="sourceLine" id="cb5-45" data-line-number="45"><span class="co">#&gt; 43:   municip0301    7  43   TRUE 59709 19  8  0 607025         2 666761</span></a>
-<a class="sourceLine" id="cb5-46" data-line-number="46"><span class="co">#&gt; 44:   municip0301    7  44   TRUE 59706 20  9  0 607026         2 666761</span></a>
-<a class="sourceLine" id="cb5-47" data-line-number="47"><span class="co">#&gt; 45:   municip0301    7  45   TRUE 59705 18 10  0 607028         3 666761</span></a>
-<a class="sourceLine" id="cb5-48" data-line-number="48"><span class="co">#&gt; 46:   municip0301    7  46   TRUE 59704 17 11  0 607029         1 666761</span></a>
-<a class="sourceLine" id="cb5-49" data-line-number="49"><span class="co">#&gt; 47:   municip0301    7  47   TRUE 59699 20 12  0 607030         2 666761</span></a>
-<a class="sourceLine" id="cb5-50" data-line-number="50"><span class="co">#&gt; 48:   municip0301    7  48   TRUE 59697 20 11  0 607033         2 666761</span></a>
-<a class="sourceLine" id="cb5-51" data-line-number="51"><span class="co">#&gt; 49:   municip0301    7  49   TRUE 59694 18 13  0 607036         4 666761</span></a>
-<a class="sourceLine" id="cb5-52" data-line-number="52"><span class="co">#&gt; 50:   municip0301    8  50   TRUE 59692 19 10  0 607040         1 666761</span></a>
-<a class="sourceLine" id="cb5-53" data-line-number="53"><span class="co">#&gt; 51:   municip0301    8  51   TRUE 59690 20 10  0 607041         1 666761</span></a>
-<a class="sourceLine" id="cb5-54" data-line-number="54"><span class="co">#&gt; 52:   municip0301    8  52   TRUE 59689 20 11  0 607041         1 666761</span></a>
-<a class="sourceLine" id="cb5-55" data-line-number="55"><span class="co">#&gt; 53:   municip0301    8  53   TRUE 59687 21 12  0 607041         1 666761</span></a>
-<a class="sourceLine" id="cb5-56" data-line-number="56"><span class="co">#&gt; 54:   municip0301    8  54   TRUE 59685 21 11  0 607044         2 666761</span></a>
-<a class="sourceLine" id="cb5-57" data-line-number="57"><span class="co">#&gt; 55:   municip0301    8  55   TRUE 59678 26 11  0 607046         1 666761</span></a>
-<a class="sourceLine" id="cb5-58" data-line-number="58"><span class="co">#&gt; 56:   municip0301    8  56   TRUE 59676 25  8  0 607052         3 666761</span></a>
-<a class="sourceLine" id="cb5-59" data-line-number="59"><span class="co">#&gt; 57:   municip0301    9  57   TRUE 59675 21 12  0 607053         6 666761</span></a>
-<a class="sourceLine" id="cb5-60" data-line-number="60"><span class="co">#&gt; 58:   municip0301    9  58   TRUE 59672 20 14  0 607055         4 666761</span></a>
-<a class="sourceLine" id="cb5-61" data-line-number="61"><span class="co">#&gt; 59:   municip0301    9  59   TRUE 59668 21 14  0 607058         3 666761</span></a>
-<a class="sourceLine" id="cb5-62" data-line-number="62"><span class="co">#&gt; 60:   municip0301    9  60   TRUE 59666 17 19  0 607059         6 666761</span></a>
-<a class="sourceLine" id="cb5-63" data-line-number="63"><span class="co">#&gt; 61:   municip0301    9  61   TRUE 59661 19 18  0 607063         3 666761</span></a>
-<a class="sourceLine" id="cb5-64" data-line-number="64"><span class="co">#&gt; 62:   municip0301    9  62   TRUE 59655 22 18  0 607066         3 666761</span></a>
-<a class="sourceLine" id="cb5-65" data-line-number="65"><span class="co">#&gt; 63:   municip0301    9  63   TRUE 59652 25 12  0 607072         0 666761</span></a>
-<a class="sourceLine" id="cb5-66" data-line-number="66"><span class="co">#&gt;     location_code week day is_6pm     S  E  I Ia      R incidence    pop</span></a></code></pre></div>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">#&gt;     location_code week day is_6pm     S  E I Ia      R incidence    pop</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">#&gt;  1:   municip0301    1   1   TRUE 59764  2 9  0 606985         0 666760</span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#&gt;  2:   municip0301    1   2   TRUE 59761  4 7  0 606988         1 666760</span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co">#&gt;  3:   municip0301    1   3   TRUE 59760  4 5  0 606991         1 666760</span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#&gt;  4:   municip0301    1   4   TRUE 59759  5 4  0 606992         0 666760</span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">#&gt;  5:   municip0301    1   5   TRUE 59759  5 2  0 606994         0 666760</span></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">#&gt;  6:   municip0301    1   6   TRUE 59758  5 2  0 606995         1 666760</span></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">#&gt;  7:   municip0301    1   7   TRUE 59756  7 2  0 606995         0 666760</span></a>
+<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">#&gt;  8:   municip0301    2   8   TRUE 59755  8 2  0 606995         0 666760</span></a>
+<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="co">#&gt;  9:   municip0301    2   9   TRUE 59755  6 4  0 606995         2 666760</span></a>
+<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co">#&gt; 10:   municip0301    2  10   TRUE 59754  6 4  0 606996         1 666760</span></a>
+<a class="sourceLine" id="cb5-13" data-line-number="13"><span class="co">#&gt; 11:   municip0301    2  11   TRUE 59754  6 3  0 606997         0 666760</span></a>
+<a class="sourceLine" id="cb5-14" data-line-number="14"><span class="co">#&gt; 12:   municip0301    2  12   TRUE 59754  5 3  0 606998         1 666760</span></a>
+<a class="sourceLine" id="cb5-15" data-line-number="15"><span class="co">#&gt; 13:   municip0301    2  13   TRUE 59752  7 3  0 606998         0 666760</span></a>
+<a class="sourceLine" id="cb5-16" data-line-number="16"><span class="co">#&gt; 14:   municip0301    2  14   TRUE 59752  6 4  0 606998         1 666760</span></a>
+<a class="sourceLine" id="cb5-17" data-line-number="17"><span class="co">#&gt; 15:   municip0301    3  15   TRUE 59752  4 6  0 606998         2 666760</span></a>
+<a class="sourceLine" id="cb5-18" data-line-number="18"><span class="co">#&gt; 16:   municip0301    3  16   TRUE 59749  5 8  0 606998         2 666760</span></a>
+<a class="sourceLine" id="cb5-19" data-line-number="19"><span class="co">#&gt; 17:   municip0301    3  17   TRUE 59746  8 7  0 606999         0 666760</span></a>
+<a class="sourceLine" id="cb5-20" data-line-number="20"><span class="co">#&gt; 18:   municip0301    3  18   TRUE 59745  6 9  0 607000         3 666760</span></a>
+<a class="sourceLine" id="cb5-21" data-line-number="21"><span class="co">#&gt; 19:   municip0301    3  19   TRUE 59743  6 9  0 607002         2 666760</span></a>
+<a class="sourceLine" id="cb5-22" data-line-number="22"><span class="co">#&gt; 20:   municip0301    3  20   TRUE 59743  6 7  0 607004         0 666760</span></a>
+<a class="sourceLine" id="cb5-23" data-line-number="23"><span class="co">#&gt; 21:   municip0301    3  21   TRUE 59743  4 5  0 607008         1 666760</span></a>
+<a class="sourceLine" id="cb5-24" data-line-number="24"><span class="co">#&gt; 22:   municip0301    4  22   TRUE 59742  5 4  0 607009         0 666760</span></a>
+<a class="sourceLine" id="cb5-25" data-line-number="25"><span class="co">#&gt; 23:   municip0301    4  23   TRUE 59741  6 3  0 607010         0 666760</span></a>
+<a class="sourceLine" id="cb5-26" data-line-number="26"><span class="co">#&gt; 24:   municip0301    4  24   TRUE 59739  7 4  0 607010         1 666760</span></a>
+<a class="sourceLine" id="cb5-27" data-line-number="27"><span class="co">#&gt; 25:   municip0301    4  25   TRUE 59739  7 3  0 607011         0 666760</span></a>
+<a class="sourceLine" id="cb5-28" data-line-number="28"><span class="co">#&gt; 26:   municip0301    4  26   TRUE 59738  6 4  0 607012         2 666760</span></a>
+<a class="sourceLine" id="cb5-29" data-line-number="29"><span class="co">#&gt; 27:   municip0301    4  27   TRUE 59738  4 5  0 607013         2 666760</span></a>
+<a class="sourceLine" id="cb5-30" data-line-number="30"><span class="co">#&gt; 28:   municip0301    4  28   TRUE 59737  4 5  0 607014         1 666760</span></a>
+<a class="sourceLine" id="cb5-31" data-line-number="31"><span class="co">#&gt; 29:   municip0301    5  29   TRUE 59736  5 5  0 607014         1 666760</span></a>
+<a class="sourceLine" id="cb5-32" data-line-number="32"><span class="co">#&gt; 30:   municip0301    5  30   TRUE 59734  4 6  0 607016         3 666760</span></a>
+<a class="sourceLine" id="cb5-33" data-line-number="33"><span class="co">#&gt; 31:   municip0301    5  31   TRUE 59732  5 7  0 607016         1 666760</span></a>
+<a class="sourceLine" id="cb5-34" data-line-number="34"><span class="co">#&gt; 32:   municip0301    5  32   TRUE 59732  4 7  0 607017         1 666760</span></a>
+<a class="sourceLine" id="cb5-35" data-line-number="35"><span class="co">#&gt; 33:   municip0301    5  33   TRUE 59732  4 6  0 607018         0 666760</span></a>
+<a class="sourceLine" id="cb5-36" data-line-number="36"><span class="co">#&gt; 34:   municip0301    5  34   TRUE 59731  5 6  0 607018         0 666760</span></a>
+<a class="sourceLine" id="cb5-37" data-line-number="37"><span class="co">#&gt; 35:   municip0301    5  35   TRUE 59731  5 5  0 607019         0 666760</span></a>
+<a class="sourceLine" id="cb5-38" data-line-number="38"><span class="co">#&gt; 36:   municip0301    6  36   TRUE 59729  7 4  0 607020         0 666760</span></a>
+<a class="sourceLine" id="cb5-39" data-line-number="39"><span class="co">#&gt; 37:   municip0301    6  37   TRUE 59729  5 5  0 607021         2 666760</span></a>
+<a class="sourceLine" id="cb5-40" data-line-number="40"><span class="co">#&gt; 38:   municip0301    6  38   TRUE 59727  6 5  0 607022         1 666760</span></a>
+<a class="sourceLine" id="cb5-41" data-line-number="41"><span class="co">#&gt; 39:   municip0301    6  39   TRUE 59727  5 5  0 607023         1 666760</span></a>
+<a class="sourceLine" id="cb5-42" data-line-number="42"><span class="co">#&gt; 40:   municip0301    6  40   TRUE 59725  7 4  0 607024         0 666760</span></a>
+<a class="sourceLine" id="cb5-43" data-line-number="43"><span class="co">#&gt; 41:   municip0301    6  41   TRUE 59725  7 3  0 607025         0 666760</span></a>
+<a class="sourceLine" id="cb5-44" data-line-number="44"><span class="co">#&gt; 42:   municip0301    6  42   TRUE 59725  7 2  0 607026         0 666760</span></a>
+<a class="sourceLine" id="cb5-45" data-line-number="45"><span class="co">#&gt; 43:   municip0301    7  43   TRUE 59724  7 3  0 607026         0 666760</span></a>
+<a class="sourceLine" id="cb5-46" data-line-number="46"><span class="co">#&gt; 44:   municip0301    7  44   TRUE 59722  9 3  0 607026         0 666760</span></a>
+<a class="sourceLine" id="cb5-47" data-line-number="47"><span class="co">#&gt; 45:   municip0301    7  45   TRUE 59721 10 3  0 607026         0 666760</span></a>
+<a class="sourceLine" id="cb5-48" data-line-number="48"><span class="co">#&gt; 46:   municip0301    7  46   TRUE 59721  9 3  0 607027         1 666760</span></a>
+<a class="sourceLine" id="cb5-49" data-line-number="49"><span class="co">#&gt; 47:   municip0301    7  47   TRUE 59720  9 4  0 607027         1 666760</span></a>
+<a class="sourceLine" id="cb5-50" data-line-number="50"><span class="co">#&gt; 48:   municip0301    7  48   TRUE 59720  9 3  0 607028         0 666760</span></a>
+<a class="sourceLine" id="cb5-51" data-line-number="51"><span class="co">#&gt; 49:   municip0301    7  49   TRUE 59718 10 4  0 607028         1 666760</span></a>
+<a class="sourceLine" id="cb5-52" data-line-number="52"><span class="co">#&gt; 50:   municip0301    8  50   TRUE 59717 11 4  0 607028         0 666760</span></a>
+<a class="sourceLine" id="cb5-53" data-line-number="53"><span class="co">#&gt; 51:   municip0301    8  51   TRUE 59717  9 6  0 607028         2 666760</span></a>
+<a class="sourceLine" id="cb5-54" data-line-number="54"><span class="co">#&gt; 52:   municip0301    8  52   TRUE 59716 10 5  0 607029         0 666760</span></a>
+<a class="sourceLine" id="cb5-55" data-line-number="55"><span class="co">#&gt; 53:   municip0301    8  53   TRUE 59716  9 5  0 607030         1 666760</span></a>
+<a class="sourceLine" id="cb5-56" data-line-number="56"><span class="co">#&gt; 54:   municip0301    8  54   TRUE 59715  7 7  0 607031         2 666760</span></a>
+<a class="sourceLine" id="cb5-57" data-line-number="57"><span class="co">#&gt; 55:   municip0301    8  55   TRUE 59714  8 6  0 607032         0 666760</span></a>
+<a class="sourceLine" id="cb5-58" data-line-number="58"><span class="co">#&gt; 56:   municip0301    8  56   TRUE 59712  9 5  0 607034         1 666760</span></a>
+<a class="sourceLine" id="cb5-59" data-line-number="59"><span class="co">#&gt; 57:   municip0301    9  57   TRUE 59711 10 3  0 607036         0 666760</span></a>
+<a class="sourceLine" id="cb5-60" data-line-number="60"><span class="co">#&gt; 58:   municip0301    9  58   TRUE 59710 10 4  0 607036         1 666760</span></a>
+<a class="sourceLine" id="cb5-61" data-line-number="61"><span class="co">#&gt; 59:   municip0301    9  59   TRUE 59707 13 4  0 607036         0 666760</span></a>
+<a class="sourceLine" id="cb5-62" data-line-number="62"><span class="co">#&gt; 60:   municip0301    9  60   TRUE 59706 11 6  0 607037         4 666760</span></a>
+<a class="sourceLine" id="cb5-63" data-line-number="63"><span class="co">#&gt; 61:   municip0301    9  61   TRUE 59705 12 6  0 607037         0 666760</span></a>
+<a class="sourceLine" id="cb5-64" data-line-number="64"><span class="co">#&gt; 62:   municip0301    9  62   TRUE 59703 14 5  0 607038         0 666760</span></a>
+<a class="sourceLine" id="cb5-65" data-line-number="65"><span class="co">#&gt; 63:   municip0301    9  63   TRUE 59701 13 7  0 607039         3 666760</span></a>
+<a class="sourceLine" id="cb5-66" data-line-number="66"><span class="co">#&gt;     location_code week day is_6pm     S  E I Ia      R incidence    pop</span></a></code></pre></div>
 <p>We can merge in information about counties, and create county level data:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">d &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/data.table/topics/merge">merge</a></span>(d,fhidata<span class="op">::</span>norway_locations_current, <span class="dt">by.x=</span><span class="st">"location_code"</span>,<span class="dt">by.y=</span><span class="st">"municip_code"</span>)</a>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">d &lt;-<span class="st"> </span><span class="kw"><a href="https://Rdatatable.gitlab.io/data.table/reference/merge.html">merge</a></span>(d,fhidata<span class="op">::</span>norway_locations_b2020, <span class="dt">by.x=</span><span class="st">"location_code"</span>,<span class="dt">by.y=</span><span class="st">"municip_code"</span>)</a>
 <a class="sourceLine" id="cb6-2" data-line-number="2">county &lt;-<span class="st"> </span>d[,.(</a>
-<a class="sourceLine" id="cb6-3" data-line-number="3">  <span class="dt">S=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sum">sum</a></span>(S),</a>
-<a class="sourceLine" id="cb6-4" data-line-number="4">  <span class="dt">E=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sum">sum</a></span>(E),</a>
-<a class="sourceLine" id="cb6-5" data-line-number="5">  <span class="dt">I=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sum">sum</a></span>(I),</a>
-<a class="sourceLine" id="cb6-6" data-line-number="6">  <span class="dt">Ia=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sum">sum</a></span>(Ia),</a>
-<a class="sourceLine" id="cb6-7" data-line-number="7">  <span class="dt">R=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sum">sum</a></span>(R),</a>
-<a class="sourceLine" id="cb6-8" data-line-number="8">  <span class="dt">incidence=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sum">sum</a></span>(incidence),</a>
-<a class="sourceLine" id="cb6-9" data-line-number="9">  <span class="dt">pop=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sum">sum</a></span>(pop)</a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">  <span class="dt">S=</span><span class="kw"><a href="https://rdrr.io/r/base/sum.html">sum</a></span>(S),</a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">  <span class="dt">E=</span><span class="kw"><a href="https://rdrr.io/r/base/sum.html">sum</a></span>(E),</a>
+<a class="sourceLine" id="cb6-5" data-line-number="5">  <span class="dt">I=</span><span class="kw"><a href="https://rdrr.io/r/base/sum.html">sum</a></span>(I),</a>
+<a class="sourceLine" id="cb6-6" data-line-number="6">  <span class="dt">Ia=</span><span class="kw"><a href="https://rdrr.io/r/base/sum.html">sum</a></span>(Ia),</a>
+<a class="sourceLine" id="cb6-7" data-line-number="7">  <span class="dt">R=</span><span class="kw"><a href="https://rdrr.io/r/base/sum.html">sum</a></span>(R),</a>
+<a class="sourceLine" id="cb6-8" data-line-number="8">  <span class="dt">incidence=</span><span class="kw"><a href="https://rdrr.io/r/base/sum.html">sum</a></span>(incidence),</a>
+<a class="sourceLine" id="cb6-9" data-line-number="9">  <span class="dt">pop=</span><span class="kw"><a href="https://rdrr.io/r/base/sum.html">sum</a></span>(pop)</a>
 <a class="sourceLine" id="cb6-10" data-line-number="10">),</a>
 <a class="sourceLine" id="cb6-11" data-line-number="11">keyby=.(county_code,county_name,week,day,is_6pm)]</a>
-<a class="sourceLine" id="cb6-12" data-line-number="12">county[,county_name<span class="op">:</span><span class="er">=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/factor">factor</a></span>(county_name,<span class="dt">levels=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/data.table/topics/duplicated">unique</a></span>(fhidata<span class="op">::</span>norway_locations_current[,<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"county_code"</span>,<span class="st">"county_name"</span>)]<span class="op">$</span>county_name))]</a>
+<a class="sourceLine" id="cb6-12" data-line-number="12">county[,county_name<span class="op">:</span><span class="er">=</span><span class="kw"><a href="https://rdrr.io/r/base/factor.html">factor</a></span>(county_name,<span class="dt">levels=</span><span class="kw"><a href="https://Rdatatable.gitlab.io/data.table/reference/duplicated.html">unique</a></span>(fhidata<span class="op">::</span>norway_locations_b2020[,<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"county_code"</span>,<span class="st">"county_name"</span>)]<span class="op">$</span>county_name))]</a>
 <a class="sourceLine" id="cb6-13" data-line-number="13">county</a>
-<a class="sourceLine" id="cb6-14" data-line-number="14"><span class="co">#&gt;       county_code county_name week day is_6pm     S E I Ia      R</span></a>
-<a class="sourceLine" id="cb6-15" data-line-number="15"><span class="co">#&gt;    1:    county01     Østfold    1   1   TRUE 22188 0 0  0 270705</span></a>
-<a class="sourceLine" id="cb6-16" data-line-number="16"><span class="co">#&gt;    2:    county01     Østfold    1   2   TRUE 22188 0 0  0 270705</span></a>
-<a class="sourceLine" id="cb6-17" data-line-number="17"><span class="co">#&gt;    3:    county01     Østfold    1   3   TRUE 22188 0 0  0 270705</span></a>
-<a class="sourceLine" id="cb6-18" data-line-number="18"><span class="co">#&gt;    4:    county01     Østfold    1   4   TRUE 22188 0 0  0 270705</span></a>
-<a class="sourceLine" id="cb6-19" data-line-number="19"><span class="co">#&gt;    5:    county01     Østfold    1   5   TRUE 22188 0 0  0 270705</span></a>
-<a class="sourceLine" id="cb6-20" data-line-number="20"><span class="co">#&gt;   ---                                                            </span></a>
-<a class="sourceLine" id="cb6-21" data-line-number="21"><span class="co">#&gt; 1130:    county50   Trøndelag    9  59   TRUE 29804 0 0  0 426818</span></a>
-<a class="sourceLine" id="cb6-22" data-line-number="22"><span class="co">#&gt; 1131:    county50   Trøndelag    9  60   TRUE 29804 0 0  0 426818</span></a>
-<a class="sourceLine" id="cb6-23" data-line-number="23"><span class="co">#&gt; 1132:    county50   Trøndelag    9  61   TRUE 29804 0 0  0 426818</span></a>
-<a class="sourceLine" id="cb6-24" data-line-number="24"><span class="co">#&gt; 1133:    county50   Trøndelag    9  62   TRUE 29804 0 0  0 426818</span></a>
-<a class="sourceLine" id="cb6-25" data-line-number="25"><span class="co">#&gt; 1134:    county50   Trøndelag    9  63   TRUE 29804 0 0  0 426818</span></a>
-<a class="sourceLine" id="cb6-26" data-line-number="26"><span class="co">#&gt;       incidence    pop</span></a>
-<a class="sourceLine" id="cb6-27" data-line-number="27"><span class="co">#&gt;    1:         0 292893</span></a>
-<a class="sourceLine" id="cb6-28" data-line-number="28"><span class="co">#&gt;    2:         0 292893</span></a>
-<a class="sourceLine" id="cb6-29" data-line-number="29"><span class="co">#&gt;    3:         0 292893</span></a>
-<a class="sourceLine" id="cb6-30" data-line-number="30"><span class="co">#&gt;    4:         0 292893</span></a>
-<a class="sourceLine" id="cb6-31" data-line-number="31"><span class="co">#&gt;    5:         0 292893</span></a>
-<a class="sourceLine" id="cb6-32" data-line-number="32"><span class="co">#&gt;   ---                 </span></a>
-<a class="sourceLine" id="cb6-33" data-line-number="33"><span class="co">#&gt; 1130:         0 456622</span></a>
-<a class="sourceLine" id="cb6-34" data-line-number="34"><span class="co">#&gt; 1131:         0 456622</span></a>
-<a class="sourceLine" id="cb6-35" data-line-number="35"><span class="co">#&gt; 1132:         0 456622</span></a>
-<a class="sourceLine" id="cb6-36" data-line-number="36"><span class="co">#&gt; 1133:         0 456622</span></a>
-<a class="sourceLine" id="cb6-37" data-line-number="37"><span class="co">#&gt; 1134:         0 456622</span></a></code></pre></div>
+<a class="sourceLine" id="cb6-14" data-line-number="14"><span class="co">#&gt;      county_code       county_name week day is_6pm     S E I Ia      R</span></a>
+<a class="sourceLine" id="cb6-15" data-line-number="15"><span class="co">#&gt;   1:    county03              Oslo    1   1   TRUE 59764 2 9  0 606985</span></a>
+<a class="sourceLine" id="cb6-16" data-line-number="16"><span class="co">#&gt;   2:    county03              Oslo    1   2   TRUE 59761 4 7  0 606988</span></a>
+<a class="sourceLine" id="cb6-17" data-line-number="17"><span class="co">#&gt;   3:    county03              Oslo    1   3   TRUE 59760 4 5  0 606991</span></a>
+<a class="sourceLine" id="cb6-18" data-line-number="18"><span class="co">#&gt;   4:    county03              Oslo    1   4   TRUE 59759 5 4  0 606992</span></a>
+<a class="sourceLine" id="cb6-19" data-line-number="19"><span class="co">#&gt;   5:    county03              Oslo    1   5   TRUE 59759 5 2  0 606994</span></a>
+<a class="sourceLine" id="cb6-20" data-line-number="20"><span class="co">#&gt;  ---                                                                  </span></a>
+<a class="sourceLine" id="cb6-21" data-line-number="21"><span class="co">#&gt; 689:    county54 Troms og Finnmark    9  59   TRUE 22632 0 0  0 220397</span></a>
+<a class="sourceLine" id="cb6-22" data-line-number="22"><span class="co">#&gt; 690:    county54 Troms og Finnmark    9  60   TRUE 22632 0 0  0 220397</span></a>
+<a class="sourceLine" id="cb6-23" data-line-number="23"><span class="co">#&gt; 691:    county54 Troms og Finnmark    9  61   TRUE 22632 0 0  0 220397</span></a>
+<a class="sourceLine" id="cb6-24" data-line-number="24"><span class="co">#&gt; 692:    county54 Troms og Finnmark    9  62   TRUE 22632 0 0  0 220397</span></a>
+<a class="sourceLine" id="cb6-25" data-line-number="25"><span class="co">#&gt; 693:    county54 Troms og Finnmark    9  63   TRUE 22632 0 0  0 220397</span></a>
+<a class="sourceLine" id="cb6-26" data-line-number="26"><span class="co">#&gt;      incidence    pop</span></a>
+<a class="sourceLine" id="cb6-27" data-line-number="27"><span class="co">#&gt;   1:         0 666760</span></a>
+<a class="sourceLine" id="cb6-28" data-line-number="28"><span class="co">#&gt;   2:         1 666760</span></a>
+<a class="sourceLine" id="cb6-29" data-line-number="29"><span class="co">#&gt;   3:         1 666760</span></a>
+<a class="sourceLine" id="cb6-30" data-line-number="30"><span class="co">#&gt;   4:         0 666760</span></a>
+<a class="sourceLine" id="cb6-31" data-line-number="31"><span class="co">#&gt;   5:         0 666760</span></a>
+<a class="sourceLine" id="cb6-32" data-line-number="32"><span class="co">#&gt;  ---                 </span></a>
+<a class="sourceLine" id="cb6-33" data-line-number="33"><span class="co">#&gt; 689:         0 243029</span></a>
+<a class="sourceLine" id="cb6-34" data-line-number="34"><span class="co">#&gt; 690:         0 243029</span></a>
+<a class="sourceLine" id="cb6-35" data-line-number="35"><span class="co">#&gt; 691:         0 243029</span></a>
+<a class="sourceLine" id="cb6-36" data-line-number="36"><span class="co">#&gt; 692:         0 243029</span></a>
+<a class="sourceLine" id="cb6-37" data-line-number="37"><span class="co">#&gt; 693:         0 243029</span></a></code></pre></div>
 <p>We can produce a daily epicurve for each county:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(county, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x=</span>day, <span class="dt">y=</span>incidence))</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2">p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span>()</a>
-<a class="sourceLine" id="cb7-3" data-line-number="3">p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span>(<span class="op">~</span>county_name)</a>
-<a class="sourceLine" id="cb7-4" data-line-number="4">p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span>(<span class="st">"Day"</span>)</a>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span>(county, <span class="kw"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span>(<span class="dt">x=</span>day, <span class="dt">y=</span>incidence))</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/ggplot2/man/geom_bar.html">geom_col</a></span>()</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/ggplot2/man/facet_wrap.html">facet_wrap</a></span>(<span class="op">~</span>county_name)</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/ggplot2/man/scale_continuous.html">scale_x_continuous</a></span>(<span class="st">"Day"</span>)</a>
 <a class="sourceLine" id="cb7-5" data-line-number="5">p</a></code></pre></div>
 <p><img src="commuter_model_files/figure-html/unnamed-chunk-7-1.png" width="672"></p>
 <p>And we can produce weekly maps:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">w &lt;-<span class="st"> </span>county[,.(</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2">  <span class="dt">incidence_weekly =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sum">sum</a></span>(incidence),</a>
-<a class="sourceLine" id="cb8-3" data-line-number="3">  <span class="dt">pop =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/mean">mean</a></span>(pop)</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">  <span class="dt">incidence_weekly =</span> <span class="kw"><a href="https://rdrr.io/r/base/sum.html">sum</a></span>(incidence),</a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">  <span class="dt">pop =</span> <span class="kw"><a href="https://rdrr.io/r/base/mean.html">mean</a></span>(pop)</a>
 <a class="sourceLine" id="cb8-4" data-line-number="4">), keyby=.(county_code, week)]</a>
 <a class="sourceLine" id="cb8-5" data-line-number="5"></a>
 <a class="sourceLine" id="cb8-6" data-line-number="6">w[,weekly_incidence_per_<span class="dv">10000</span> <span class="op">:</span><span class="er">=</span><span class="st"> </span><span class="dv">10000</span><span class="op">*</span>incidence_weekly<span class="op">/</span>pop]</a>
-<a class="sourceLine" id="cb8-7" data-line-number="7">w[,facet<span class="op">:</span><span class="er">=</span>glue<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/glue/topics/glue">glue</a></span>(<span class="st">"Week {week}"</span>,<span class="dt">week=</span>week)]</a>
+<a class="sourceLine" id="cb8-7" data-line-number="7">w[,facet<span class="op">:</span><span class="er">=</span>glue<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/glue/man/glue.html">glue</a></span>(<span class="st">"Week {week}"</span>,<span class="dt">week=</span>week)]</a>
 <a class="sourceLine" id="cb8-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb8-9" data-line-number="9">pd &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/data.table/topics/merge">merge</a></span>(</a>
+<a class="sourceLine" id="cb8-9" data-line-number="9">pd &lt;-<span class="st"> </span><span class="kw"><a href="https://Rdatatable.gitlab.io/data.table/reference/merge.html">merge</a></span>(</a>
 <a class="sourceLine" id="cb8-10" data-line-number="10">  w,</a>
-<a class="sourceLine" id="cb8-11" data-line-number="11">  fhidata<span class="op">::</span>norway_map_counties, </a>
+<a class="sourceLine" id="cb8-11" data-line-number="11">  fhidata<span class="op">::</span>norway_map_counties_b2020, </a>
 <a class="sourceLine" id="cb8-12" data-line-number="12">  <span class="dt">by.x=</span><span class="st">"county_code"</span>,</a>
 <a class="sourceLine" id="cb8-13" data-line-number="13">  <span class="dt">by.y=</span><span class="st">"location_code"</span>,</a>
 <a class="sourceLine" id="cb8-14" data-line-number="14">  <span class="dt">allow.cartesian =</span> T)</a>
 <a class="sourceLine" id="cb8-15" data-line-number="15"></a>
-<a class="sourceLine" id="cb8-16" data-line-number="16">p &lt;-<span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="dt">data=</span>pd, <span class="dt">mapping=</span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>( <span class="dt">x =</span> long, <span class="dt">y =</span> lat, <span class="dt">group =</span> group))</a>
-<a class="sourceLine" id="cb8-17" data-line-number="17">p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_polygon.html">geom_polygon</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">fill=</span>weekly_incidence_per_<span class="dv">10000</span>))</a>
-<a class="sourceLine" id="cb8-18" data-line-number="18">p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span>(<span class="op">~</span>facet)</a>
-<a class="sourceLine" id="cb8-19" data-line-number="19">p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_void</a></span>()</a>
-<a class="sourceLine" id="cb8-20" data-line-number="20">p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/coord_map.html">coord_quickmap</a></span>()</a>
+<a class="sourceLine" id="cb8-16" data-line-number="16">p &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span>(<span class="dt">data=</span>pd, <span class="dt">mapping=</span><span class="kw"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span>( <span class="dt">x =</span> long, <span class="dt">y =</span> lat, <span class="dt">group =</span> group))</a>
+<a class="sourceLine" id="cb8-17" data-line-number="17">p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/ggplot2/man/geom_polygon.html">geom_polygon</a></span>(<span class="kw"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span>(<span class="dt">fill=</span>weekly_incidence_per_<span class="dv">10000</span>))</a>
+<a class="sourceLine" id="cb8-18" data-line-number="18">p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/ggplot2/man/facet_wrap.html">facet_wrap</a></span>(<span class="op">~</span>facet)</a>
+<a class="sourceLine" id="cb8-19" data-line-number="19">p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/ggplot2/man/ggtheme.html">theme_void</a></span>()</a>
+<a class="sourceLine" id="cb8-20" data-line-number="20">p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/ggplot2/man/coord_map.html">coord_quickmap</a></span>()</a>
 <a class="sourceLine" id="cb8-21" data-line-number="21">p</a></code></pre></div>
 <p><img src="commuter_model_files/figure-html/unnamed-chunk-8-1.png" width="672"></p>
 </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+
         <div id="tocnav">
       <h2 class="hasAnchor">
 <a href="#tocnav" class="anchor"></a>Contents</h2>
@@ -391,17 +394,20 @@
 </div>
 
 
+
       <footer><div class="copyright">
   <p>Developed by Solveig Engebretsen, Andreas Nygård Osnes, Richard White.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
+
       </footer>
 </div>
 
   
+
 
   </body>
 </html>
