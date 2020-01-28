@@ -138,7 +138,8 @@ metapopulation model that including commuting.</p>
   <span class='kw'>commuters</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='https://rdrr.io/pkg/spread/man/norway_commuters_2017_b2020.html'>norway_commuters_2017_b2020</a></span>, <span class='kw'>r0</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>beta</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>latent_period</span> <span class='kw'>=</span> <span class='fl'>1.9</span>, <span class='kw'>infectious_period</span> <span class='kw'>=</span> <span class='fl'>3</span>,
   <span class='kw'>asymptomatic_prob</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>asymptomatic_relative_infectiousness</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>days_simulation</span> <span class='kw'>=</span> <span class='fl'>7</span> * <span class='fl'>8</span>, <span class='kw'>N</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>simulations</span> <span class='kw'>=</span> <span class='fl'>1</span>)</pre>
+  <span class='kw'>days_simulation</span> <span class='kw'>=</span> <span class='fl'>7</span> * <span class='fl'>8</span>, <span class='kw'>N</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>simulations</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>seed</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -184,12 +185,16 @@ metapopulation model that including commuting.</p>
       <td><p>Int = 1 int, Number of internal simulations (average taken)</p></td>
     </tr>
     <tr>
+      <th>simulations</th>
+      <td><p>Number of simulations (all returned)</p></td>
+    </tr>
+    <tr>
       <th>verbose</th>
       <td><p>boolean</p></td>
     </tr>
     <tr>
-      <th>simulations</th>
-      <td><p>Number of simulations (all returned)</p></td>
+      <th>seed</th>
+      <td><p>seed</p></td>
     </tr>
     </table>
 
