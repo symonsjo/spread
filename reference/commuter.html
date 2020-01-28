@@ -70,7 +70,7 @@ metapopulation model that including commuting." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">spread</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2020.1.27</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2020.1.28</span>
       </span>
     </div>
 
@@ -138,7 +138,7 @@ metapopulation model that including commuting.</p>
   <span class='kw'>commuters</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='https://rdrr.io/pkg/spread/man/norway_commuters_2017_b2020.html'>norway_commuters_2017_b2020</a></span>, <span class='kw'>r0</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>beta</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>latent_period</span> <span class='kw'>=</span> <span class='fl'>1.9</span>, <span class='kw'>infectious_period</span> <span class='kw'>=</span> <span class='fl'>3</span>,
   <span class='kw'>asymptomatic_prob</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>asymptomatic_relative_infectiousness</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>days_simulation</span> <span class='kw'>=</span> <span class='fl'>7</span> * <span class='fl'>8</span>, <span class='kw'>N</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+  <span class='kw'>days_simulation</span> <span class='kw'>=</span> <span class='fl'>7</span> * <span class='fl'>8</span>, <span class='kw'>N</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>simulations</span> <span class='kw'>=</span> <span class='fl'>1</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -181,11 +181,15 @@ metapopulation model that including commuting.</p>
     </tr>
     <tr>
       <th>N</th>
-      <td><p>Int = 1 int, Number of repetitions</p></td>
+      <td><p>Int = 1 int, Number of internal simulations (average taken)</p></td>
     </tr>
     <tr>
       <th>verbose</th>
       <td><p>boolean</p></td>
+    </tr>
+    <tr>
+      <th>simulations</th>
+      <td><p>Number of simulations (all returned)</p></td>
     </tr>
     </table>
 
@@ -210,25 +214,37 @@ commuters are then sent to their respective home locations, where they mix for 1
   <span class='kw'>infectious_period</span> <span class='kw'>=</span> <span class='fl'>5</span>,
   <span class='kw'>asymptomatic_prob</span> <span class='kw'>=</span> <span class='fl'>0</span>,
   <span class='kw'>asymptomatic_relative_infectiousness</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>days_simulation</span> <span class='kw'>=</span> <span class='fl'>7</span>*<span class='fl'>9</span>,
+  <span class='kw'>days_simulation</span> <span class='kw'>=</span> <span class='fl'>7</span> * <span class='fl'>9</span>,
   <span class='kw'>N</span> <span class='kw'>=</span> <span class='fl'>1</span>
 )</div><div class='output co'>#&gt; Starting to add edges, printing every 1000 edge
 #&gt; 1000 2000 3000 4000 5000 6000 7000 8000 9000 10000 11000 12000 13000 14000 15000 16000 17000 18000 19000 20000 21000 22000 23000 Found 23894 edges
 #&gt; Running 1 simulations of 63 days
 #&gt; 
 #&gt; 
-#&gt; Finished all simulations</div><div class='output co'>#&gt;        location_code week day is_6pm     S E I Ia      R incidence    pop
-#&gt;     1:   municip0301    1   1   TRUE 59763 3 9  0 606985         0 666760
-#&gt;     2:   municip0301    1   2   TRUE 59763 3 7  0 606987         0 666760
-#&gt;     3:   municip0301    1   3   TRUE 59759 7 4  0 606990         0 666760
-#&gt;     4:   municip0301    1   4   TRUE 59759 7 4  0 606990         0 666760
-#&gt;     5:   municip0301    1   5   TRUE 59759 6 3  0 606992         1 666760
+#&gt; Finished all simulations</div><div class='output co'>#&gt;        sim_id location_code week day is_6pm     S E I Ia      R incidence
+#&gt;     1:      1   municip0301    1   1   TRUE 59763 3 9  0 606985         0
+#&gt;     2:      1   municip0301    1   2   TRUE 59763 3 7  0 606987         0
+#&gt;     3:      1   municip0301    1   3   TRUE 59759 7 4  0 606990         0
+#&gt;     4:      1   municip0301    1   4   TRUE 59759 7 4  0 606990         0
+#&gt;     5:      1   municip0301    1   5   TRUE 59759 6 3  0 606992         1
 #&gt;    ---                                                                   
-#&gt; 22424:   municip5444    9  59   TRUE  1149 0 0  0   9050         0  10199
-#&gt; 22425:   municip5444    9  60   TRUE  1149 0 0  0   9050         0  10199
-#&gt; 22426:   municip5444    9  61   TRUE  1149 0 0  0   9050         0  10199
-#&gt; 22427:   municip5444    9  62   TRUE  1149 0 0  0   9050         0  10199
-#&gt; 22428:   municip5444    9  63   TRUE  1149 0 0  0   9050         0  10199</div></pre>
+#&gt; 22424:      1   municip5444    9  59   TRUE  1149 0 0  0   9050         0
+#&gt; 22425:      1   municip5444    9  60   TRUE  1149 0 0  0   9050         0
+#&gt; 22426:      1   municip5444    9  61   TRUE  1149 0 0  0   9050         0
+#&gt; 22427:      1   municip5444    9  62   TRUE  1149 0 0  0   9050         0
+#&gt; 22428:      1   municip5444    9  63   TRUE  1149 0 0  0   9050         0
+#&gt;           pop
+#&gt;     1: 666760
+#&gt;     2: 666760
+#&gt;     3: 666760
+#&gt;     4: 666760
+#&gt;     5: 666760
+#&gt;    ---       
+#&gt; 22424:  10199
+#&gt; 22425:  10199
+#&gt; 22426:  10199
+#&gt; 22427:  10199
+#&gt; 22428:  10199</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

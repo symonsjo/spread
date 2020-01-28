@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">spread</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2020.1.27</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2020.1.28</span>
       </span>
     </div>
 
@@ -89,6 +89,32 @@
 <a href="#spread" class="anchor"></a>spread</h1></div>
 <p>An R package that contains different infectious disease spread models.</p>
 <p>Currently we have implemented <a href="https://folkehelseinstituttet.github.io/spread/articles/commuter_model.html">commuter model</a>. This model is a stochastic SEIIaR (susceptible, exposed, infectious, infectious asymptomatic, recovered) metapopulation model that including commuting. Each location has a local infection system, while the locations are connected by people who commute each day. The model differentiates between day and night. During the day you can infect/be infected in the location where you work, while during the night you can infect/be infected in the location where you live. It is the same commuters who travel back and forth each day. At the start of a day, all commuters are sent to their work location, where they mix for 12 hours. The commuters are then sent to their respective home locations, where they mix for 12 hours. The model is based upon a published model.</p>
+<div id="fhiverse" class="section level2">
+<h2 class="hasAnchor">
+<a href="#fhiverse" class="anchor"></a>fhiverse</h2>
+<p>The <code>fhiverse</code> is a set of R packages developed by the Norwegian Institute of Public Health to help solve problems relating to:</p>
+<ul>
+<li>structural data in Norway (e.g. maps, population, redistricting)</li>
+<li>convenience functions for Norwegian researchers (e.g. Norwgian formatting, Norwegian characters)</li>
+<li>analysis planning (especially for making graphs/tables for reports)</li>
+<li>file structures in projects</li>
+<li>styleguides/recommendations for FHI employees</li>
+</ul>
+<p>If you want to install the dev versions (or access packages that haven’t been released on CRAN), run <code><a href="https://usethis.r-lib.org/reference/edit.html">usethis::edit_r_profile()</a></code> to edit your <code>.Rprofile</code>. Then write in:</p>
+<pre><code><a href="https://rdrr.io/r/base/options.html">options(repos=structure(c(
+  FHI="https://folkehelseinstituttet.github.io/drat/",
+  CRAN="https://cran.rstudio.com"
+)))</a></code></pre>
+<p>Save the file and restart R. This will allow you to install <code>fhiverse</code> packages from the FHI registry.</p>
+<p>Current <code>fhiverse</code> packages are:</p>
+<ul>
+<li><a href="https://folkehelseinstituttet.github.io/spread">spread</a></li>
+<li><a href="https://folkehelseinstituttet.github.io/fhi">fhidata</a></li>
+<li><a href="https://folkehelseinstituttet.github.io/fhi">fhiplot</a></li>
+<li><a href="https://folkehelseinstituttet.github.io/fhi">plnr</a></li>
+<li><a href="https://folkehelseinstituttet.github.io/fhi">fhi</a></li>
+</ul>
+</div>
 </div>
   </div>
 
