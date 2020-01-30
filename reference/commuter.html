@@ -70,7 +70,7 @@ metapopulation model that including commuting." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">spread</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2020.1.28</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2020.1.30</span>
       </span>
     </div>
 
@@ -139,7 +139,7 @@ metapopulation model that including commuting.</p>
   <span class='kw'>beta</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>latent_period</span> <span class='kw'>=</span> <span class='fl'>1.9</span>, <span class='kw'>infectious_period</span> <span class='kw'>=</span> <span class='fl'>3</span>,
   <span class='kw'>asymptomatic_prob</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>asymptomatic_relative_infectiousness</span> <span class='kw'>=</span> <span class='fl'>0</span>,
   <span class='kw'>days_simulation</span> <span class='kw'>=</span> <span class='fl'>7</span> * <span class='fl'>8</span>, <span class='kw'>N</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>simulations</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>seed</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+  <span class='kw'>seed</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>aggregate_location</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -182,11 +182,11 @@ metapopulation model that including commuting.</p>
     </tr>
     <tr>
       <th>N</th>
-      <td><p>Int = 1 int, Number of internal simulations (average taken)</p></td>
+      <td><p>Int = 1 int, Number of internal simulations (average taken). This is generally used for parameter fitting.</p></td>
     </tr>
     <tr>
       <th>simulations</th>
-      <td><p>Number of simulations (all returned)</p></td>
+      <td><p>Int, Number of simulations (all returned). This is generally used to generate stochastic results.</p></td>
     </tr>
     <tr>
       <th>verbose</th>
@@ -196,7 +196,24 @@ metapopulation model that including commuting.</p>
       <th>seed</th>
       <td><p>seed</p></td>
     </tr>
+    <tr>
+      <th>aggregate_location</th>
+      <td><p>Do you want to aggregate over all location_codes?</p></td>
+    </tr>
     </table>
+
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    
+<dl class='dl-horizontal'>
+<dt>year</dt><dd><p>The middle year of a 5 year range (e.g. 2011 is the average of data from 2009-2013).</p></dd>
+<dt>location_code</dt><dd><p>The location code.</p></dd>
+<dt>age</dt><dd><p>The population age.</p></dd>
+<dt>vax</dt><dd><p>The vaccine.</p></dd>
+<dt>proportion</dt><dd><p>Proportion of people who are vaccinated.</p></dd>
+<dt>imputed</dt><dd><p>FALSE if real data. TRUE if it is the national average.</p></dd>
+
+</dl>
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
@@ -220,7 +237,10 @@ commuters are then sent to their respective home locations, where they mix for 1
   <span class='kw'>asymptomatic_prob</span> <span class='kw'>=</span> <span class='fl'>0</span>,
   <span class='kw'>asymptomatic_relative_infectiousness</span> <span class='kw'>=</span> <span class='fl'>0</span>,
   <span class='kw'>days_simulation</span> <span class='kw'>=</span> <span class='fl'>7</span> * <span class='fl'>9</span>,
-  <span class='kw'>N</span> <span class='kw'>=</span> <span class='fl'>1</span>
+  <span class='kw'>N</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+  <span class='kw'>simulations</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+  <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>seed</span> <span class='kw'>=</span> <span class='fl'>4</span>
 )</div><div class='output co'>#&gt; Starting to add edges, printing every 1000 edge
 #&gt; 1000 2000 3000 4000 5000 6000 7000 8000 9000 10000 11000 12000 13000 14000 15000 16000 17000 18000 19000 20000 21000 22000 23000 Found 23894 edges
 #&gt; Running 1 simulations of 63 days
@@ -228,10 +248,10 @@ commuters are then sent to their respective home locations, where they mix for 1
 #&gt; 
 #&gt; Finished all simulations</div><div class='output co'>#&gt;        sim_id location_code week day is_6pm     S E I Ia      R incidence
 #&gt;     1:      1   municip0301    1   1   TRUE 59763 3 9  0 606985         0
-#&gt;     2:      1   municip0301    1   2   TRUE 59763 3 7  0 606987         0
-#&gt;     3:      1   municip0301    1   3   TRUE 59759 7 4  0 606990         0
-#&gt;     4:      1   municip0301    1   4   TRUE 59759 7 4  0 606990         0
-#&gt;     5:      1   municip0301    1   5   TRUE 59759 6 3  0 606992         1
+#&gt;     2:      1   municip0301    1   2   TRUE 59762 4 9  0 606985         0
+#&gt;     3:      1   municip0301    1   3   TRUE 59761 5 7  0 606987         0
+#&gt;     4:      1   municip0301    1   4   TRUE 59758 8 7  0 606987         0
+#&gt;     5:      1   municip0301    1   5   TRUE 59757 9 5  0 606989         0
 #&gt;    ---                                                                   
 #&gt; 22424:      1   municip5444    9  59   TRUE  1149 0 0  0   9050         0
 #&gt; 22425:      1   municip5444    9  60   TRUE  1149 0 0  0   9050         0
@@ -255,6 +275,7 @@ commuters are then sent to their respective home locations, where they mix for 1
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#value">Value</a></li>
       <li><a href="#details">Details</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
