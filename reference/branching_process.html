@@ -135,14 +135,46 @@ serial_interval a distcrete object</p>
     </div>
 
     <pre class="usage"><span class='fu'>branching_process</span>(<span class='kw'>initial_cases</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>R0</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>dispersion</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>serial_interval</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>end_time</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>N</span> <span class='kw'>=</span> <span class='fl'>1000</span>)</pre>
+  <span class='kw'>serial_interval</span> <span class='kw'>=</span> <span class='kw pkg'>distcrete</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/distcrete/man/distcrete.html'>distcrete</a></span>(<span class='st'>"gamma"</span>, <span class='kw'>interval</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>shape</span> <span class='kw'>=</span>
+  <span class='kw pkg'>epitrix</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/epitrix/man/gamma_tools.html'>gamma_mucv2shapescale</a></span>(<span class='kw'>mu</span> <span class='kw'>=</span> <span class='fl'>8.4</span>, <span class='kw'>cv</span> <span class='kw'>=</span> <span class='fl'>3.4</span>/<span class='fl'>8.4</span>)$<span class='no'>shape</span>, <span class='kw'>scale</span> <span class='kw'>=</span>
+  <span class='kw pkg'>epitrix</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/epitrix/man/gamma_tools.html'>gamma_mucv2shapescale</a></span>(<span class='kw'>mu</span> <span class='kw'>=</span> <span class='fl'>8.4</span>, <span class='kw'>cv</span> <span class='kw'>=</span> <span class='fl'>3.4</span>/<span class='fl'>8.4</span>)$<span class='no'>scale</span>, <span class='kw'>w</span> <span class='kw'>=</span> <span class='fl'>0</span>),
+  <span class='kw'>days_simulation</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>simulations</span> <span class='kw'>=</span> <span class='fl'>1000</span>)</pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>initial_cases</th>
+      <td><p>Number of initial cases</p></td>
+    </tr>
+    <tr>
+      <th>R0</th>
+      <td><p>R0</p></td>
+    </tr>
+    <tr>
+      <th>dispersion</th>
+      <td><p>Dispersion parameter</p></td>
+    </tr>
+    <tr>
+      <th>serial_interval</th>
+      <td><p>Serial interval (distribution in days)</p></td>
+    </tr>
+    <tr>
+      <th>days_simulation</th>
+      <td><p>Days simulated</p></td>
+    </tr>
+    <tr>
+      <th>simulations</th>
+      <td><p>Number of simulations</p></td>
+    </tr>
+    </table>
 
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
     </ul>
 
   </div>
@@ -151,7 +183,7 @@ serial_interval a distcrete object</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Solveig Engebretsen, Andreas Nygård Osnes, Richard White.</p>
+  <p>Developed by Solveig Engebretsen, Andreas Nygård Osnes, Gunnar Rø Osnes, Richard White.</p>
 </div>
 
 <div class="pkgdown">
