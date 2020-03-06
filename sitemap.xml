@@ -4,6 +4,21 @@
     <loc>https://folkehelseinstituttet.github.io/spread//index.html</loc>
   </url>
   <url>
+    <loc>https://folkehelseinstituttet.github.io/spread//reference/asymmetric_mobility.html</loc>
+  </url>
+  <url>
+    <loc>https://folkehelseinstituttet.github.io/spread//reference/asymmetric_mobility_cpp.html</loc>
+  </url>
+  <url>
+    <loc>https://folkehelseinstituttet.github.io/spread//reference/asymmetric_mobility_dummy_betas.html</loc>
+  </url>
+  <url>
+    <loc>https://folkehelseinstituttet.github.io/spread//reference/asymmetric_mobility_dummy_mobility_matrix.html</loc>
+  </url>
+  <url>
+    <loc>https://folkehelseinstituttet.github.io/spread//reference/asymmetric_mobility_dummy_seiiar_pop.html</loc>
+  </url>
+  <url>
     <loc>https://folkehelseinstituttet.github.io/spread//reference/branching_process.html</loc>
   </url>
   <url>
@@ -47,6 +62,9 @@
   </url>
   <url>
     <loc>https://folkehelseinstituttet.github.io/spread//reference/summarize_bp.html</loc>
+  </url>
+  <url>
+    <loc>https://folkehelseinstituttet.github.io/spread//articles/asymmetric_mobility_intro.html</loc>
   </url>
   <url>
     <loc>https://folkehelseinstituttet.github.io/spread//articles/branching_process.html</loc>
