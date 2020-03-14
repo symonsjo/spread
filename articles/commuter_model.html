@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">spread</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2020.3.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2020.3.14</span>
       </span>
     </div>
 
@@ -94,7 +94,7 @@
       <h1>Commuter Model</h1>
                         <h4 class="author">Richard White</h4>
             
-            <h4 class="date">2020-03-06</h4>
+            <h4 class="date">2020-03-14</h4>
       
       
       <div class="hidden name"><code>commuter_model.Rmd</code></div>
@@ -365,7 +365,7 @@
 <a class="sourceLine" id="cb8-4" data-line-number="4">), keyby=.(county_code, week)]</a>
 <a class="sourceLine" id="cb8-5" data-line-number="5"></a>
 <a class="sourceLine" id="cb8-6" data-line-number="6">w[,weekly_incidence_per_<span class="dv">10000</span> <span class="op">:</span><span class="er">=</span><span class="st"> </span><span class="dv">10000</span><span class="op">*</span>incidence_weekly<span class="op">/</span>pop]</a>
-<a class="sourceLine" id="cb8-7" data-line-number="7">w[,facet<span class="op">:</span><span class="er">=</span>glue<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/glue/man/glue.html">glue</a></span>(<span class="st">"Week {week}"</span>,<span class="dt">week=</span>week)]</a>
+<a class="sourceLine" id="cb8-7" data-line-number="7">w[,facet<span class="op">:</span><span class="er">=</span>glue<span class="op">::</span><span class="kw"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span>(<span class="st">"Week {week}"</span>,<span class="dt">week=</span>week)]</a>
 <a class="sourceLine" id="cb8-8" data-line-number="8"></a>
 <a class="sourceLine" id="cb8-9" data-line-number="9">pd &lt;-<span class="st"> </span><span class="kw"><a href="https://Rdatatable.gitlab.io/data.table/reference/merge.html">merge</a></span>(</a>
 <a class="sourceLine" id="cb8-10" data-line-number="10">  w,</a>

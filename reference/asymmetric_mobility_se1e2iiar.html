@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>asymmetric mobility — asymmetric_mobility • spread</title>
+<title>asymmetric mobility SE1E2IIaR — asymmetric_mobility_se1e2iiar • spread</title>
 
 
 <!-- jquery -->
@@ -35,7 +35,7 @@
 
 
 
-<meta property="og:title" content="asymmetric mobility — asymmetric_mobility" />
+<meta property="og:title" content="asymmetric mobility SE1E2IIaR — asymmetric_mobility_se1e2iiar" />
 <meta property="og:description" content="For more information, look at vignette(&quot;commuter_model&quot;,&quot;spread&quot;)" />
 <meta name="twitter:card" content="summary" />
 
@@ -129,28 +129,30 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>asymmetric mobility</h1>
+    <h1>asymmetric mobility SE1E2IIaR</h1>
     
-    <div class="hidden name"><code>asymmetric_mobility.Rd</code></div>
+    <div class="hidden name"><code>asymmetric_mobility_se1e2iiar.Rd</code></div>
     </div>
 
     <div class="ref-description">
     <p>For more information, look at <code><a href='../articles/commuter_model.html'>vignette("commuter_model","spread")</a></code></p>
     </div>
 
-    <pre class="usage"><span class='fu'>asymmetric_mobility</span>(<span class='kw'>seiiar_pop</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='https://rdrr.io/pkg/spread/man/asymmetric_mobility_dummy_seiiar_pop.html'>asymmetric_mobility_dummy_seiiar_pop</a></span>,
-  <span class='kw'>mobility_matrix</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='https://rdrr.io/pkg/spread/man/asymmetric_mobility_dummy_mobility_matrix.html'>asymmetric_mobility_dummy_mobility_matrix</a></span>,
+    <pre class="usage"><span class='fu'>asymmetric_mobility_se1e2iiar</span>(<span class='kw'>se1e2iiar_pop</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'>asymmetric_mobility_dummy_se1e2iiar_pop</span>,
+  <span class='kw'>mobility_matrix</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'>asymmetric_mobility_dummy_se1e2iiar_mobility_matrix</span>,
   <span class='kw'>dynamic_seeds</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>betas</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='https://rdrr.io/pkg/spread/man/asymmetric_mobility_dummy_betas.html'>asymmetric_mobility_dummy_betas</a></span>, <span class='kw'>latent_period</span> <span class='kw'>=</span> <span class='fl'>1.9</span>,
-  <span class='kw'>infectious_period</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>asymptomatic_prob</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>asymptomatic_relative_infectiousness</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>N</span> <span class='kw'>=</span> <span class='fl'>1</span>)</pre>
+  <span class='kw'>betas</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'>asymmetric_mobility_dummy_se1e2iiar_betas</span>,
+  <span class='kw'>latent_period</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>presymptomatic_period</span> <span class='kw'>=</span> <span class='fl'>3</span>,
+  <span class='kw'>infectious_period</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>presymptomatic_relative_infectiousness</span> <span class='kw'>=</span> <span class='fl'>1.25</span>,
+  <span class='kw'>asymptomatic_prob</span> <span class='kw'>=</span> <span class='fl'>0.4</span>, <span class='kw'>asymptomatic_relative_infectiousness</span> <span class='kw'>=</span> <span class='fl'>0.5</span>,
+  <span class='kw'>N</span> <span class='kw'>=</span> <span class='fl'>1</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>seiiar_pop</th>
-      <td><p>Data frame containing `location_code`, `S`, `E`, `I`, `Ia`, and `R` for the entire population</p></td>
+      <th>se1e2iiar_pop</th>
+      <td><p>Data frame containing `location_code`, `S`, `E1`, `E2`, `I`, `Ia`, and `R` for the entire population</p></td>
     </tr>
     <tr>
       <th>mobility_matrix</th>
@@ -166,11 +168,19 @@
     </tr>
     <tr>
       <th>latent_period</th>
-      <td><p>Float, 1.9</p></td>
+      <td><p>Float, 2.0</p></td>
+    </tr>
+    <tr>
+      <th>presymptomatic_period</th>
+      <td><p>Float 3.0</p></td>
     </tr>
     <tr>
       <th>infectious_period</th>
-      <td><p>Float, 3</p></td>
+      <td><p>Float, 5.0</p></td>
+    </tr>
+    <tr>
+      <th>presymptomatic_relative_infectiousness</th>
+      <td><p>Float, relative infectiousness of presymptomatic</p></td>
     </tr>
     <tr>
       <th>asymptomatic_prob</th>
@@ -188,48 +198,50 @@
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/spread/man/asymmetric_mobility.html'>asymmetric_mobility</a></span>(
-  <span class='kw'>seiiar_pop</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='https://rdrr.io/pkg/spread/man/asymmetric_mobility_dummy_seiiar_pop.html'>asymmetric_mobility_dummy_seiiar_pop</a></span>,
-  <span class='kw'>mobility_matrix</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='https://rdrr.io/pkg/spread/man/asymmetric_mobility_dummy_mobility_matrix.html'>asymmetric_mobility_dummy_mobility_matrix</a></span>,
-  <span class='kw'>dynamic_seeds</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='https://rdrr.io/pkg/spread/man/asymmetric_mobility_dummy_dynamic_seeds.html'>asymmetric_mobility_dummy_dynamic_seeds</a></span>,
-  <span class='kw'>betas</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='https://rdrr.io/pkg/spread/man/asymmetric_mobility_dummy_betas.html'>asymmetric_mobility_dummy_betas</a></span>,
-  <span class='kw'>latent_period</span> <span class='kw'>=</span> <span class='fl'>1.9</span>,
-  <span class='kw'>infectious_period</span> <span class='kw'>=</span> <span class='fl'>3.0</span>,
+    <pre class="examples"><div class='input'><span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/spread/man/asymmetric_mobility_se1e2iiar.html'>asymmetric_mobility_se1e2iiar</a></span>(
+  <span class='kw'>se1e2iiar_pop</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='https://rdrr.io/pkg/spread/man/asymmetric_mobility_se1e2iiar_dummy_se1e2iiar_pop.html'>asymmetric_mobility_se1e2iiar_dummy_se1e2iiar_pop</a></span>,
+  <span class='kw'>mobility_matrix</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='https://rdrr.io/pkg/spread/man/asymmetric_mobility_se1e2iiar_dummy_mobility_matrix.html'>asymmetric_mobility_se1e2iiar_dummy_mobility_matrix</a></span>,
+  <span class='kw'>dynamic_seeds</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='https://rdrr.io/pkg/spread/man/asymmetric_mobility_se1e2iiar_dummy_dynamic_seeds.html'>asymmetric_mobility_se1e2iiar_dummy_dynamic_seeds</a></span>,
+  <span class='kw'>betas</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='https://rdrr.io/pkg/spread/man/asymmetric_mobility_se1e2iiar_dummy_betas.html'>asymmetric_mobility_se1e2iiar_dummy_betas</a></span>,
+  <span class='kw'>latent_period</span> <span class='kw'>=</span> <span class='fl'>2.0</span>,
+  <span class='kw'>presymptomatic_period</span> <span class='kw'>=</span> <span class='fl'>3.0</span>,
+  <span class='kw'>infectious_period</span> <span class='kw'>=</span> <span class='fl'>5.0</span>,
+  <span class='kw'>presymptomatic_relative_infectiousness</span> <span class='kw'>=</span> <span class='fl'>1</span>,
   <span class='kw'>asymptomatic_prob</span> <span class='kw'>=</span> <span class='fl'>0</span>,
   <span class='kw'>asymptomatic_relative_infectiousness</span> <span class='kw'>=</span> <span class='fl'>0</span>,
   <span class='kw'>N</span> <span class='kw'>=</span> <span class='fl'>1</span>
-)</div><div class='output co'>#&gt;     location_code week day  time  b_S b_E b_I b_Ia b_R  c_S c_E c_I c_Ia c_R
-#&gt;  1:             a    1   1 23:59  974  23  43    0  10  825  23  34    0   8
-#&gt;  2:             a    1   2 23:59  955  30  41    0  24  663  24  27    0  16
-#&gt;  3:             a    1   3 23:59  934  28  46    0  42  510  20  24    0  16
-#&gt;  4:             a    1   4 23:59  915  24  50    0  61  347  14  28    0  21
-#&gt;  5:             a    1   5 23:59  889  33  50    0  78  192  13  23    0  22
-#&gt;  6:             b    1   1 23:59  997   2   1    0   0 1146   2  10    0   2
-#&gt;  7:             b    1   2 23:59  990   7   3    0   0 1282  13  17    0   8
-#&gt;  8:             b    1   3 23:59  975  16   6    0   3 1399  24  28    0  29
-#&gt;  9:             b    1   4 23:59  962  21  12    0   5 1530  31  34    0  45
-#&gt; 10:             b    1   5 23:59  941  22  26    0  11 1638  42  53    0  67
-#&gt; 11:             c    1   1 23:59 1999   1   0    0   0 1999   1   0    0   0
-#&gt; 12:             c    1   2 23:59 1998   2   0    0   0 1998   2   0    0   0
-#&gt; 13:             c    1   3 23:59 1998   2   0    0   0 1998   2   0    0   0
-#&gt; 14:             c    1   4 23:59 1995   5   0    0   0 1995   5   0    0   0
-#&gt; 15:             c    1   5 23:59 1992   3   5    0   0 1992   3   5    0   0
-#&gt;     c_incidence
-#&gt;  1:           0
-#&gt;  2:           1
-#&gt;  3:           0
-#&gt;  4:           1
-#&gt;  5:           4
-#&gt;  6:           0
-#&gt;  7:           1
-#&gt;  8:           5
-#&gt;  9:           6
-#&gt; 10:           8
-#&gt; 11:           0
-#&gt; 12:           0
-#&gt; 13:           0
-#&gt; 14:           0
-#&gt; 15:           2</div></pre>
+)</div><div class='output co'>#&gt;     location_code week day  time  b_S b_E1 b_E2 b_I b_Ia b_R  c_S c_E1 c_E2 c_I
+#&gt;  1:             a    1   1 23:59  964   30    5  41    0  10  808   27    5  40
+#&gt;  2:             a    1   2 23:59  940   32   22  41    0  15  640   30   14  34
+#&gt;  3:             a    1   3 23:59  911   42   26  44    0  27  481   30   15  26
+#&gt;  4:             a    1   4 23:59  870   57   38  54    0  31  325   30   19  26
+#&gt;  5:             a    1   5 23:59  823   69   58  59    0  41  175   26   19  21
+#&gt;  6:             b    1   1 23:59 1000    0    0   0    0   0 1156    3    0   1
+#&gt;  7:             b    1   2 23:59  990    7    3   0    0   0 1290    9   11   7
+#&gt;  8:             b    1   3 23:59  977   15    4   4    0   0 1407   27   15  22
+#&gt;  9:             b    1   4 23:59  957   24   10   9    0   0 1502   51   29  37
+#&gt; 10:             b    1   5 23:59  927   41   17   9    0   6 1575   84   56  47
+#&gt; 11:             c    1   1 23:59 1999    1    0   0    0   0 1999    1    0   0
+#&gt; 12:             c    1   2 23:59 1999    0    1   0    0   0 1999    0    1   0
+#&gt; 13:             c    1   3 23:59 1999    0    1   0    0   0 1999    0    1   0
+#&gt; 14:             c    1   4 23:59 1996    3    0   1    0   0 1996    3    0   1
+#&gt; 15:             c    1   5 23:59 1993    6    0   1    0   0 1993    6    0   1
+#&gt;     c_Ia c_R c_incidence
+#&gt;  1:    0  10           0
+#&gt;  2:    0  12           0
+#&gt;  3:    0  18           0
+#&gt;  4:    0  10           2
+#&gt;  5:    0   9           1
+#&gt;  6:    0   0           0
+#&gt;  7:    0   3           0
+#&gt;  8:    0   9           3
+#&gt;  9:    0  21           2
+#&gt; 10:    0  38           2
+#&gt; 11:    0   0           0
+#&gt; 12:    0   0           0
+#&gt; 13:    0   0           0
+#&gt; 14:    0   0           0
+#&gt; 15:    0   0           0</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

@@ -36,7 +36,7 @@
 
 
 <meta property="og:title" content="asymmetric_mobility_cpp — asymmetric_mobility_cpp" />
-<meta property="og:description" content="asymmetric_mobility_cpp" />
+<meta property="og:description" content="Raw CPP function. Should not be called directly." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -69,7 +69,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">spread</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2020.3.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2020.3.14</span>
       </span>
     </div>
 
@@ -135,11 +135,11 @@
     </div>
 
     <div class="ref-description">
-    <p>asymmetric_mobility_cpp</p>
+    <p>Raw CPP function. Should not be called directly.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>asymmetric_mobility_cpp</span>(<span class='no'>seiiar_pop</span>, <span class='no'>mobility_matrix</span>, <span class='no'>betas</span>, <span class='no'>a</span>, <span class='no'>gamma</span>,
-  <span class='no'>asymptomaticProb</span>, <span class='no'>asymptomaticRelativeInfectiousness</span>, <span class='kw'>N</span> <span class='kw'>=</span> <span class='fl'>1L</span>,
+    <pre class="usage"><span class='fu'>asymmetric_mobility_cpp</span>(<span class='no'>seiiar_pop</span>, <span class='no'>mobility_matrix</span>, <span class='no'>seed_matrix</span>, <span class='no'>betas</span>, <span class='no'>a</span>,
+  <span class='no'>gamma</span>, <span class='no'>asymptomaticProb</span>, <span class='no'>asymptomaticRelativeInfectiousness</span>, <span class='kw'>N</span> <span class='kw'>=</span> <span class='fl'>1L</span>,
   <span class='kw'>M</span> <span class='kw'>=</span> <span class='fl'>56L</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -152,6 +152,10 @@
     <tr>
       <th>mobility_matrix</th>
       <td><p>List of data.frames</p></td>
+    </tr>
+    <tr>
+      <th>seed_matrix</th>
+      <td><p>matrix of seeding cases per date (row) per geographical location (column)</p></td>
     </tr>
     <tr>
       <th>betas</th>
