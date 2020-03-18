@@ -196,6 +196,30 @@
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A data.table containing the following variables:</p><dl class='dl-horizontal'>
+<dt>location_code</dt><dd><p>Location code</p></dd>
+<dt>week</dt><dd><p>Week number</p></dd>
+<dt>day</dt><dd><p>Day number</p></dd>
+<dt>time</dt><dd><p>Time of reporting (23:59)</p></dd>
+<dt>b_S</dt><dd><p>Susceptibles belonging to location code</p></dd>
+<dt>b_E1</dt><dd><p>E1s belonging to location code</p></dd>
+<dt>b_E2</dt><dd><p>E2s belonging to location code</p></dd>
+<dt>b_I</dt><dd><p>Infectious (symptomatic) belonging to location code</p></dd>
+<dt>b_Ia</dt><dd><p>Infectious (asymptomatic) belonging to location code</p></dd>
+<dt>b_R</dt><dd><p>Recovered belonging to location code</p></dd>
+<dt>c_S</dt><dd><p>Susceptibles currently in this location code</p></dd>
+<dt>c_E1</dt><dd><p>E1s currently in this location code</p></dd>
+<dt>c_E2</dt><dd><p>E2s currently in this location code</p></dd>
+<dt>c_I</dt><dd><p>Infectious (symptomatic) currently in this location code</p></dd>
+<dt>c_Ia</dt><dd><p>Infectious (asymptomatic) currently in this location code</p></dd>
+<dt>c_R</dt><dd><p>Recovered currently in this location code</p></dd>
+<dt>c_symp_incidence</dt><dd><p>Transition from E2 to I currently in this location code</p></dd>
+<dt>c_asymp_incidence</dt><dd><p>Transition from E1 to Ia currently in this location code</p></dd>
+
+</dl>
+
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/spread/man/asymmetric_mobility_se1e2iiar.html'>asymmetric_mobility_se1e2iiar</a></span>(
@@ -211,32 +235,32 @@
   <span class='kw'>asymptomatic_relative_infectiousness</span> <span class='kw'>=</span> <span class='fl'>0</span>,
   <span class='kw'>N</span> <span class='kw'>=</span> <span class='fl'>1</span>
 )</div><div class='output co'>#&gt;     location_code week day  time  b_S b_E1 b_E2 b_I b_Ia b_R  c_S c_E1 c_E2 c_I
-#&gt;  1:             a    1   1 23:59  986   11    2  41    0  10  833   11    2  36
-#&gt;  2:             a    1   2 23:59  962   24    6  39    0  19  660   21    4  32
-#&gt;  3:             a    1   3 23:59  939   36   12  36    0  27  495   24    8  27
-#&gt;  4:             a    1   4 23:59  911   41   26  37    0  35  348   17    9  21
-#&gt;  5:             a    1   5 23:59  879   47   33  48    0  43  196   16   11  13
-#&gt;  6:             b    1   1 23:59  996    4    0   0    0   0 1149    4    0   5
-#&gt;  7:             b    1   2 23:59  993    4    3   0    0   0 1295    7    5   7
-#&gt;  8:             b    1   3 23:59  983    8    4   4    0   1 1427   20    8  13
-#&gt;  9:             b    1   4 23:59  967   21    6   5    0   1 1530   45   23  21
-#&gt; 10:             b    1   5 23:59  944   30   19   5    0   2 1627   61   41  40
-#&gt; 11:             c    1   1 23:59 1999    1    0   0    0   0 1999    1    0   0
-#&gt; 12:             c    1   2 23:59 1999    1    0   0    0   0 1999    1    0   0
-#&gt; 13:             c    1   3 23:59 1999    1    0   0    0   0 1999    1    0   0
+#&gt;  1:             a    1   1 23:59  974   22    3  40    0  11  823   20    2  35
+#&gt;  2:             a    1   2 23:59  956   29    8  40    0  17  656   27    6  27
+#&gt;  3:             a    1   3 23:59  934   27   24  39    0  26  500   18   16  20
+#&gt;  4:             a    1   4 23:59  915   29   24  49    0  33  351   14   11  20
+#&gt;  5:             a    1   5 23:59  877   45   33  49    0  46  202   13   12   8
+#&gt;  6:             b    1   1 23:59  995    5    0   0    0   0 1146    7    1   5
+#&gt;  7:             b    1   2 23:59  985   12    3   0    0   0 1285   14    5  13
+#&gt;  8:             b    1   3 23:59  973   16    5   5    0   1 1407   25   13  24
+#&gt;  9:             b    1   4 23:59  961   21   10   6    0   2 1525   36   23  35
+#&gt; 10:             b    1   5 23:59  938   35   18   5    0   4 1613   67   39  46
+#&gt; 11:             c    1   1 23:59 2000    0    0   0    0   0 2000    0    0   0
+#&gt; 12:             c    1   2 23:59 2000    0    0   0    0   0 2000    0    0   0
+#&gt; 13:             c    1   3 23:59 2000    0    0   0    0   0 2000    0    0   0
 #&gt; 14:             c    1   4 23:59 1999    1    0   0    0   0 1999    1    0   0
-#&gt; 15:             c    1   5 23:59 1999    1    0   0    0   0 1999    1    0   0
+#&gt; 15:             c    1   5 23:59 1999    0    1   0    0   0 1999    0    1   0
 #&gt;     c_Ia c_R c_symp_incidence c_saymp_incidence
-#&gt;  1:    0   8                1                 0
-#&gt;  2:    0  13                6                 0
-#&gt;  3:    0  16                4                 0
-#&gt;  4:    0  15                9                 0
-#&gt;  5:    0  14               11                 0
-#&gt;  6:    0   2                0                 0
-#&gt;  7:    0   6                1                 0
-#&gt;  8:    0  12                6                 0
-#&gt;  9:    0  21                1                 0
-#&gt; 10:    0  31                9                 0
+#&gt;  1:    0  10                1                 0
+#&gt;  2:    0  14                4                 0
+#&gt;  3:    0  16                7                 0
+#&gt;  4:    0  14               11                 0
+#&gt;  5:    0  15                7                 0
+#&gt;  6:    0   1                0                 0
+#&gt;  7:    0   3                2                 0
+#&gt;  8:    0  11                7                 0
+#&gt;  9:    0  21                8                 0
+#&gt; 10:    0  35                7                 0
 #&gt; 11:    0   0                0                 0
 #&gt; 12:    0   0                0                 0
 #&gt; 13:    0   0                0                 0
@@ -247,6 +271,7 @@
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#value">Value</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
 
