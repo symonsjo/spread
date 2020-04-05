@@ -190,7 +190,9 @@ commuter <- function(
                      simulations = 1,
                      verbose = TRUE,
                      seed = NULL,
-                     aggregate_location = FALSE) {
+                     aggregate_location = FALSE,
+                     delta_t_day = 12/24,
+                     delta_t_night = 12/24) {
   . <- NULL
   incidence <- NULL
   location_code <- NULL
@@ -243,7 +245,9 @@ commuter <- function(
       asymptomaticRelativeInfectiousness = asymptomatic_relative_infectiousness,
       N = N,
       M = days_simulation,
-      verbose = verbose & simulations == 1
+      verbose = verbose & simulations == 1,
+      delta_t_day = delta_t_day,
+      delta_t_night = delta_t_night
     )
     retval <- copy(retval)
 
