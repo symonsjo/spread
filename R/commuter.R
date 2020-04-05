@@ -149,6 +149,8 @@ check_commuters <- function(commuters) {
 #' @param verbose boolean
 #' @param seed seed
 #' @param aggregate_location Do you want to aggregate over all location_codes?
+#' @param delta_t_day Percentage of day mixing
+#' @param delta_t_night Percentage of night mixing
 #' @examples
 #' spread::commuter(
 #'   seiiar = spread::norway_seiiar_measles_oslo_2017_b2020,
@@ -162,7 +164,9 @@ check_commuters <- function(commuters) {
 #'   N = 1,
 #'   simulations = 1,
 #'   verbose = TRUE,
-#'   seed = 4
+#'   seed = 4,
+#'   delta_t_day = 12/24,
+#'   delta_t_night = 12/24
 #' )
 #' @return
 #'
