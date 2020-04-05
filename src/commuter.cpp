@@ -103,7 +103,7 @@ void Location::seir_step_day(
   int ds; int de1; int dia; int di;
 
   // Run the SEIR step
-  seir_sim(ds, de1, de2, dia, di, S_tmp, E_tmp, Ia_tmp, I_tmp, beta, a, gamma, asymptomaticProb, asymptomaticRelativeInfectiousness, pop_tmp, 2/24.0);
+  seir_sim(ds, de1, de2, dia, di, S_tmp, E_tmp, Ia_tmp, I_tmp, beta, a, gamma, asymptomaticProb, asymptomaticRelativeInfectiousness, pop_tmp, 3/24.0);
 
   //Distribute the transitions
   double *probs = new double[num+1];
@@ -306,7 +306,7 @@ void Location::seir_step_night(
   int ds; int de1; int dia; int di;
 
   // Run the SEIR step
-  seir_sim(ds, de1, de2, dia, di, S_tmp, E_tmp, Ia_tmp, I_tmp, beta, a, gamma, asymptomaticProb, asymptomaticRelativeInfectiousness, pop_tmp, 2/24.0);
+  seir_sim(ds, de1, de2, dia, di, S_tmp, E_tmp, Ia_tmp, I_tmp, beta, a, gamma, asymptomaticProb, asymptomaticRelativeInfectiousness, pop_tmp, 3/24.0);
 
   //Distribute the transitions
   double *probs = new double[num+1];
