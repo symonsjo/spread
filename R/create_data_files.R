@@ -161,8 +161,7 @@ create_blank_norway_2017 <- function() {
   di_edge_list <- di_edge_list[from != to]
   di_edge_list <- di_edge_list[n > 0]
   sum(di_edge_list$n)
-  library(fhidata)
-  seiiar <- norway_population_b2020[year == 2017 & level == "municipality", .(
+  seiiar <- fhidata::norway_population_b2020[year == 2017 & level == "municipality", .(
     S = sum(pop),
     E = 0,
     I = 0,

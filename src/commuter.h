@@ -36,8 +36,8 @@ class Location{
 	void add_inlink(Link *link);
 	void add_outlink(Link *link);
 	void print();
-	void seir_step_day(float beta, float a, float gamma, float asymptomaticProb, float asymptomaticRelativeInfectiousness, float deltaTDay, int &de2);
-	void seir_step_night(float beta, float a, float gamma, float asymptomaticProb, float asymptomaticRelativeInfectiousness, float deltaTNight, int &de2);
+	void seir_step_day(float beta, float a, float gamma, float asymptomaticProb, float asymptomaticRelativeInfectiousness, int &de2);
+	void seir_step_night(float beta, float a, float gamma, float asymptomaticProb, float asymptomaticRelativeInfectiousness, int &de2);
 };
 
 class Link{
