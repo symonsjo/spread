@@ -61,7 +61,6 @@ void Location::seir_step_day(
     float gamma,
     float asymptomaticProb,
     float asymptomaticRelativeInfectiousness,
-    float deltaTDay,
     int &de2){ // Return symptomatic incidence
   int S_tmp = S;
   int E_tmp = E;
@@ -104,7 +103,7 @@ void Location::seir_step_day(
   int ds; int de1; int dia; int di;
 
   // Run the SEIR step
-  seir_sim(ds, de1, de2, dia, di, S_tmp, E_tmp, Ia_tmp, I_tmp, beta, a, gamma, asymptomaticProb, asymptomaticRelativeInfectiousness, pop_tmp, deltaTDay);
+  seir_sim(ds, de1, de2, dia, di, S_tmp, E_tmp, Ia_tmp, I_tmp, beta, a, gamma, asymptomaticProb, asymptomaticRelativeInfectiousness, pop_tmp, 12.0/24.0);
 
   //Distribute the transitions
   double *probs = new double[num+1];
@@ -267,7 +266,6 @@ void Location::seir_step_night(
     float gamma,
     float asymptomaticProb,
     float asymptomaticRelativeInfectiousness,
-    float deltaTNight,
     int &de2){ //Return symptomatic incidence
   int S_tmp = S;
   int E_tmp = E;
@@ -308,7 +306,7 @@ void Location::seir_step_night(
   int ds; int de1; int dia; int di;
 
   // Run the SEIR step
-  seir_sim(ds, de1, de2, dia, di, S_tmp, E_tmp, Ia_tmp, I_tmp, beta, a, gamma, asymptomaticProb, asymptomaticRelativeInfectiousness, pop_tmp, deltaTNight);
+  seir_sim(ds, de1, de2, dia, di, S_tmp, E_tmp, Ia_tmp, I_tmp, beta, a, gamma, asymptomaticProb, asymptomaticRelativeInfectiousness, pop_tmp, 12.0/24.0);
 
   //Distribute the transitions
   double *probs = new double[num+1];
@@ -582,8 +580,6 @@ DataFrame commuter_cpp(
     float gamma,
     float asymptomaticProb,
     float asymptomaticRelativeInfectiousness,
-    float deltaTDay,
-    float deltaTNight,
     int N=1,
     int M=56,
     bool verbose=1) {
@@ -729,7 +725,7 @@ DataFrame commuter_cpp(
       for (int i = 0; i < n; ++i){
         int de2 = 0;
         // Let commuters mix at their work location during day time
-        G_current.locations[i].seir_step_day(beta, a, gamma, asymptomaticProb, asymptomaticRelativeInfectiousness, deltaTDay, de2);
+        G_current.locations[i].seir_step_day(beta, a, gamma, asymptomaticProb, asymptomaticRelativeInfectiousness, de2);
         values[i][2*i_day][0] += G_current.locations[i].S;
         values[i][2*i_day][1] += G_current.locations[i].E;
         values[i][2*i_day][2] += G_current.locations[i].I;
@@ -752,7 +748,7 @@ DataFrame commuter_cpp(
       for (int i = 0; i < n; ++i){
         int de2 = 0;
         // Let commuters mix in their home location during night time
-        G_current.locations[i].seir_step_night(beta, a, gamma, asymptomaticProb, asymptomaticRelativeInfectiousness, deltaTNight, de2);
+        G_current.locations[i].seir_step_night(beta, a, gamma, asymptomaticProb, asymptomaticRelativeInfectiousness, de2);
         if(i_day == (M-1)){
           final_size[i][i_sim] += G_current.locations[i].R;
         }
