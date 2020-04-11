@@ -23,7 +23,7 @@ void seir_sim(int &ds, int &de1, int &de2, int &dia, int &di,       // Outputs
       de = 0;
     }
     else{
-      de = R::rbinom(E, a*delta_t);
+      de = R::rbinom(E, a*0.5);
       if(de != 0){
         de1 = R::rbinom(de, asymptomaticProb);
         de2 = de-de1;
@@ -33,13 +33,13 @@ void seir_sim(int &ds, int &de1, int &de2, int &dia, int &di,       // Outputs
       di = 0;
     }
     else{
-      di = R::rbinom(I, gamma*delta_t);
+      di = R::rbinom(I, gamma*0.5);
     }
     if(Ia == 0){
       dia = 0;
     }
     else{
-      dia = R::rbinom(Ia, gamma*delta_t);
+      dia = R::rbinom(Ia, gamma*0.5);
     }
     ds = R::rbinom(S, beta*delta_t*I/pop + asymptomaticRelativeInfectiousness*beta*delta_t*Ia/pop);
   }
